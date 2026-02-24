@@ -18,3 +18,7 @@ for col in numeric_columns:
 ## Replace missing values with NaN
 data = data.replace("--", pd.NA)
 print(data.head())
+
+## Confirm the number of rows and columns
+print(f"Number of rows: {data.shape[0]}")
+print(f"Number of columns: {data.shape[1]}")
