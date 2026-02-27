@@ -76,8 +76,7 @@ notes on missingness:
 ## 1.3 
 Choose 2–3 sanity checks and explain what they tell you about data quality.
 
-Briefly comment on whether the most positive/negative words “make sense” to
-you—and what “make sense” even means here.
+I consider "making sense" as a visible contrast between the most positive and most negative words. These make sense to me as the most positive section have words that indicate happiness: laughter, love, joy, excellent, and the negative words have dark words: suicide, murder, cancer, death. There are no contrasts against each other in the positive word list and the same goes for the negative word list. 
 
 # 2
 ## 2.1
