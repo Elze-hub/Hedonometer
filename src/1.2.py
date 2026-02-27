@@ -1,9 +1,12 @@
 # Task 1.2 Create a data dictionary
-
+from pathlib import Path
 import pandas as pd
 
 # This says where the data is, assigned to the variable 'file_path'
-file_path = "data/raw/Data_Set_S1.txt"
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
+file_path = ROOT_DIR / "data" / "raw" / "Data_Set_S1.txt"
+
 
 # 
 df = pd.read_csv(      # read_csv opens the file and reads it
