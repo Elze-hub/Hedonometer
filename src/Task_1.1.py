@@ -22,3 +22,13 @@ print(data.head())
 ## Confirm the number of rows and columns
 print(f"Number of rows: {data.shape[0]}")
 print(f"Number of columns: {data.shape[1]}")
+
+## Create a new subfolder called "processed" in the data directory if it doesn't already exist
+import os
+processed_dir = '../data/processed'
+if not os.path.exists(processed_dir):
+    os.makedirs(processed_dir)
+
+## Write a cleaned version of the data to a new .csv file keeping missing values as NaN (no need to replace them with something else since pandas can handle NaN values)
+data.to_csv(os.path.join(processed_dir, 'hedonometer_data.csv'), index=False)
+
