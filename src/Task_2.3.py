@@ -60,8 +60,14 @@ print(f"Number of words unique to NYT: {len(nyt_unique)}")
 print(f"Number of words unique to Google Books: {len(google_unique)}")
 print(f"Number of words unique to Lyrics: {len(lyrics_unique)}")
 
+## Create figures directory if it doesn't exist
+import os
+figures_dir = '../figures'
+if not os.path.exists(figures_dir):
+    os.makedirs(figures_dir)
+
 ## Make a plot about corpus differences
-### Bar chart of how many different words appear in each corpus
+### Bar chart of how many different words appear in each corpus and save it to /figures
 import matplotlib.pyplot as plt
 corpora = ['Twitter', 'NYT', 'Google Books', 'Lyrics']
 counts = [twitter_count, nyt_count, google_count, lyrics_count]
@@ -69,39 +75,34 @@ plt.bar(corpora, counts, color=['blue', 'orange', 'green', 'red'])
 plt.title('Number of labMT Words in Top 5000 of Each Corpus')
 plt.xlabel('Corpus')
 plt.ylabel('Number of Words')
-plt.show()
+plt.savefig('../figures/corpus_word_counts.png')
 
+## Clear previous plot (otherwise figures get muddled together)
+plt.clf()
 
-### Heatmap-like table showing overlap between corpora (number of shared words in top 5000)
+### Heatmap-like table showing overlap between corpora (number of shared words in top 5000) and save it to /figures
 import numpy as np
 corpora = ['Twitter', 'NYT', 'Google Books', 'Lyrics']
-overlap_matrix = np.zeros((4, 4), dtype=int)
-overlap_matrix[0, 1] = len(twitter_words.intersection(nyt_words))
-overlap_matrix[0, 2] = len(twitter_words.intersection(google_words))
-overlap_matrix[0, 3] = len(twitter_words.intersection(lyrics_words))
-overlap_matrix[1, 0] = overlap_matrix[0, 1]
-overlap_matrix[1, 2] = len(nyt_words.intersection(google_words))
-overlap_matrix[1, 3] = len(nyt_words.intersection(lyrics_words))
-overlap_matrix[2, 0] = overlap_matrix[0, 2]
-overlap_matrix[2, 1] = overlap_matrix[1, 2]
-overlap_matrix[2, 3] = len(google_words.intersection(lyrics_words))
-overlap_matrix[3, 0] = overlap_matrix[0, 3]
-overlap_matrix[3, 1] = overlap_matrix[1, 3]
-overlap_matrix[3, 2] = overlap_matrix[2, 3]
+overlap_matrix = np.array([[twitter_count, len(twitter_words.intersection(nyt_words)), len(twitter_words.intersection(google_words)), len(twitter_words.intersection(lyrics_words))],
+                           [len(nyt_words.intersection(twitter_words)), nyt_count, len(nyt_words.intersection(google_words)), len(nyt_words.intersection(lyrics_words))],
+                           [len(google_words.intersection(twitter_words)), len(google_words.intersection(nyt_words)), google_count, len(google_words.intersection(lyrics_words))],
+                           [len(lyrics_words.intersection(twitter_words)), len(lyrics_words.intersection(nyt_words)), len(lyrics_words.intersection(google_words)), lyrics_count]])
 plt.imshow(overlap_matrix, cmap='Blues')
-plt.xticks(range(4), corpora)
-plt.yticks(range(4), corpora)
-plt.colorbar(label='Number of Shared Words in Top 5000')
-plt.title('Overlap of Words in Top 5000 Across Corpora')
-plt.show()
+plt.xticks(range(len(corpora)), corpora, rotation=45)
+plt.yticks(range(len(corpora)), corpora)
+plt.colorbar(label='Number of Shared Words')
+plt.title('Overlap of labMT Words in Top 5000 of Each Corpus')
+plt.savefig('../figures/corpus_overlap_heatmap.png')
 
+## Clear previous plot (otherwise figures get muddled together)
+plt.clf()
 
-### Scatterplot of Twitter rank vs NYT rank for words present in both
+### Scatterplot of Twitter rank vs NYT rank for words present in both and save to /figures
 common_words = twitter_words.intersection(nyt_words)
-common_data = data[data['word'].isin(common_words)]
-plt.scatter(common_data['twitter_rank'], common_data['nyt_rank'], alpha=0.5)
+twitter_ranks = data.loc[data['word'].isin(common_words), 'twitter_rank']
+nyt_ranks = data.loc[data['word'].isin(common_words), 'nyt_rank']
+plt.scatter(twitter_ranks, nyt_ranks, alpha=0.5)
 plt.title('Twitter Rank vs NYT Rank for Common Words')
 plt.xlabel('Twitter Rank')
 plt.ylabel('NYT Rank')
-plt.grid()
-plt.show()
+plt.savefig('../figures/twitter_nyt_rank_scatter.png')
