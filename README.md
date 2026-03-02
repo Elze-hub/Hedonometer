@@ -4,12 +4,15 @@
 ## 1.1
 
 Explain how you loaded the file (1–3 sentences).
-
+The file was loaded by reading a tab-delimited .txt dataset into a pandas DataFrame while skipping the first non-data rows and then converting the rank-related columns into numeric values. After loading, all "--" placeholders were replaced with proper missing values (NaN).
 
 • State the shape of the dataset (rows × columns).
-
+The dataset contains the 10222 rows and 8 columns.
 
 • Give one sentence explaining what a missing rank (--) means in this dataset
+The missing values indicate that these items were not counted in the respective ranks.
+
+
 ## 1.2 
 - word 
 
