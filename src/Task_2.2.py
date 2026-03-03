@@ -19,4 +19,15 @@ print("Top 15 Words with Highest Disagreement:")
 print(top_disagreement[['word', 'happiness_average', 'happiness_standard_deviation']])
 
 
+## Save figure to \figures
+import os
+figures_dir = '../figures'
+if not os.path.exists(figures_dir):
+    os.makedirs(figures_dir)
+plt.scatter(data['happiness_average'], data['happiness_standard_deviation'], alpha=0.5)
+plt.title('Happiness Average vs. Standard Deviation')
+plt.xlabel('Happiness Average')
+plt.ylabel('Happiness Standard Deviation')
+plt.grid()
+plt.savefig(os.path.join(figures_dir, 'happiness_disagreement.png'))
 

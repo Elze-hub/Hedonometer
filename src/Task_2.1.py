@@ -15,6 +15,19 @@ plt.ylabel('Frequency')
 plt.grid(axis='y', alpha=0.75)
 plt.show()
 
+### Save the histogram to the figures directory
+import os
+figures_dir = '../figures'
+if not os.path.exists(figures_dir):
+    os.makedirs(figures_dir)
+plt.hist(data['happiness_average'].dropna(), bins=20, edgecolor='black')
+plt.title('Distribution of Happiness Scores')
+plt.xlabel('Happiness Average')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.75)
+plt.savefig(os.path.join(figures_dir, 'happiness_distribution.png'))
+
+
 ## Compute summary statistics for happiness_average
 ### Mean
 mean_happiness = data['happiness_average'].mean()
@@ -31,5 +44,4 @@ print(f"Median Happiness Average: {median_happiness:.2f}")
 print(f"Standard Deviation of Happiness Average: {std_happiness:.2f}")
 print(f"5th Percentile of Happiness Average: {percentiles[0.05]:.2f}")
 print(f"95th Percentile of Happiness Average: {percentiles[0.95]:.2f}")
-
 

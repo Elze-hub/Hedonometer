@@ -66,6 +66,36 @@ figures_dir = '../figures'
 if not os.path.exists(figures_dir):
     os.makedirs(figures_dir)
 
+### Take the amount of unique words per corpus and divide by the total number of words in that corpus to get a percentage of unique words
+twitter_unique_percentage = len(twitter_unique) / twitter_count * 100
+nyt_unique_percentage = len(nyt_unique) / nyt_count * 100
+google_unique_percentage = len(google_unique) / google_count * 100
+lyrics_unique_percentage = len(lyrics_unique) / lyrics_count * 100
+print(f"Percentage of unique words in Twitter: {twitter_unique_percentage:.2f}%")
+print(f"Percentage of unique words in NYT: {nyt_unique_percentage:.2f}%")
+print(f"Percentage of unique words in Google Books: {google_unique_percentage:.2f}%")
+print(f"Percentage of unique words in Lyrics: {lyrics_unique_percentage:.2f}%")
+
+### Make a bar chart showing the amount and percentage of unique words in each corpus and save it to /figures
+import matplotlib.pyplot as plt
+corpora = ['Twitter', 'NYT', 'Google Books', 'Lyrics']
+unique_counts = [len(twitter_unique), len(nyt_unique), len(google_unique), len(lyrics_unique)]
+unique_percentages = [twitter_unique_percentage, nyt_unique_percentage, google_unique_percentage, lyrics_unique_percentage]
+fig, ax1 = plt.subplots()
+ax2 = ax1.twinx()
+ax1.bar(corpora, unique_counts, color=['blue', 'orange', 'green', 'red'], alpha=0.6, label='Unique Word Count')
+ax2.plot(corpora, unique_percentages, color='black', marker='o', label='Unique Word Percentage')
+ax1.set_xlabel('Corpus')
+ax1.set_ylabel('Unique Word Count', color='blue')
+ax2.set_ylabel('Unique Word Percentage', color='black')
+ax1.set_title('Unique Words in Each Corpus')
+ax1.legend(loc='upper left')
+ax2.legend(loc='upper right')
+plt.savefig('../figures/corpus_unique_words.png')
+
+## Clear previous plot (otherwise figures get muddled together)
+plt.clf()
+
 ## Make a plot about corpus differences
 ### Bar chart of how many different words appear in each corpus and save it to /figures
 import matplotlib.pyplot as plt
