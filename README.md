@@ -13,29 +13,29 @@ The dataset contains the 10222 rows and 8 columns.
 
 • Give one sentence explaining what a missing rank (--) means in this dataset:
 
-The missing values indicate that these items were not counted in the respective ranks.
+The missing values indicate that these items were not counted in the respective ranks?
 
 
 ## 1.2 
 - word 
 
-what it represents: 
+what it represents: an item that Mechanical Turk 1.0 evaluated on the happines scale
 
 type: string
 
-notes on missingness: 
+notes on missingness: none.
 
 - happiness_rank
 
-what it represents: 
+what it represents: how happy the word is considered by Mechanical Turk 1.0
 
 type: integer
 
-notes on missingness: 
+notes on missingness: none.
 
 - happiness_average
 
-what it represents: 
+what it represents: the average of happiness ratings for a specific word 
 
 type: floating-point number
 
@@ -43,15 +43,15 @@ notes on missingness:
 
 - happiness_standard_deviation
 
-what it represents: 
+what it represents: the dispersion of happiness ratings around a specific word
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 
 - twitter_rank
 
-what it represents: 
+what it represents: the sum rankings that Mechanical Turk 1.0 assigned to Twitter posts
 
 type: floating-point number
 
@@ -59,21 +59,21 @@ notes on missingness:
 
 - google_rank
 
-what it represents: 
+what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to Google posts
 
 type: floating-point number
 
 notes on missingness: 
 - nyt_rank 
 
-what it represents: 
+what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to New York Times posts
 
 type: floating-point number
 
 notes on missingness: 
 - lyrics_rank 
 
-what it represents: 
+what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to lyrics of songs
 
 type: floating-point number
 
@@ -87,19 +87,22 @@ I consider "making sense" as a visible contrast between the most positive and mo
 # 2
 ## 2.1
 Interpret the histogram in words. Is the distribution centered? skewed? clustered?
-
+The distribution is centered around between 5-6 with average standard deviation of 1.38.
 Identify 1 pattern you did not expect.
+The pattern that surprised us is that the frequency between 4 and 5,5 is very stark compared to difference between 5,5 and 7. Overall, more people seem to slightly happier above average than below it.
+
 
 ## 2.2
 Pick 5 of the “most disagreed-about” words and discuss why they might be
 contested:
-
-– ambiguity / multiple meanings
-– cultural references
-– slang and time period
-– irony, profanity, or taboo
+fucking/fucked/fuckin/fuck - could be used in an angry content but also in content about pleasure or excitement
+pussy - could be used in content about pleasure but also as an insult
+whiskey - meaning depends on personal preference
+slut - could be used in content about pleasure but also as an insult
+cigarettes/cigarette - meaning depends on personal preference
 
 • Connect your qualitative interpretation to the quantitative pattern.
+Words 'fucking','fucked', 'fuckin' and 'fuck' have highest standard deviation because they can be used in the most contexts compared to other contested words.
 
 ## 2.3
 Interpret what your plot suggests about the four corpora.
