@@ -221,3 +221,20 @@ Write a short “instrument note” (200–400 words):
 
 • What improvements would you make if you rebuilt it?
 
+4.3
+What I would trust it to tell me about
+I'd trust this dataset to provide a sense of the overall emotional valence of high-frequency English words to a US-based, 2011 Internet-using population. It does identify certain highly positive/negative terms (e.g., laughter, suicide) with high confidence and points out disputed terms through standard deviation (e.g., fucking, slut) However. It is fine to shift with the hull-moving trends of sentiment monitoring in corpora like its inspirations (Twitter, lyrics, and so on).
+
+What I will not claim
+Not that I think these scores are applicable to all people in all times and all contexts. They do not account for cultural differences (e.g., whiskey ratings could be different elsewhere), semantic change (e.g., groovy), and most importantly context (e.g., fucking could be positive or negative). Any such assertion that a text is “happy” just because it has high scores on such static, decontextualized measures is at best a rough estimate, not a precise reading.
+
+How to make it better
+If I were building it today, I'd:
+Variety of annotators (age, culture, geography) more numbers of annotators=more diverse opinions.
+Gather ratings in short sentences to see the effect of context.
+Provide “neutral” button to prevent scoring of function words.
+Add contemporary slang and a few tail words (possibly from reddit/tiktok) to the word list. Periodically update the dataset to monitor semantic drifts.
+Publish full rating distributions, not just means.
+These changes would make the instrument more subtle, more globally appropriate, and more time-sensitive. 
+
+
