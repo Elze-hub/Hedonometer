@@ -90,6 +90,7 @@ I consider "making sense" as a visible contrast between the most positive and mo
 # RESULTS
 # 2
 ## 2.1
+! [image alt](https://github.com/Elze-hub/Hedonometer/blob/fbd7d30cadb647461cc1e58b101587da45f2d4ec/happiness_distribution.png)
 Interpret the histogram in words. Is the distribution centered? skewed? clustered?
 The distribution is centered around between 5-6 with average standard deviation of 1.38.
 Identify 1 pattern you did not expect.
