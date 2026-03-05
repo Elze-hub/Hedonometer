@@ -168,6 +168,50 @@ include:
 
 • A concrete example from your exploration (a word, a plot pattern, or a missingness pattern)
 
+
+1. Annotator Availability: Amazon Mechanical Turk
+
+Choice: Happiness ratings were obtained only from online annotators through Amazon MechanicalTurk (MTurk).
+
+Consequence: The crowd is skewed for a particular demographic(e.g., US‑based, young, Internet‑savvy), which may not accurately reflect the global or cross‑cultural views on emotional valence.This introduces a cultural bias in a dataset that might produce distorted happiness scores for words that have different meanings in different cultures.
+
+Example: Terms like whiskey and cigarettes have high standard deviations, signifying considerable dissent. Apart from part of this discord may be caused by cultural variances in how we view these products or lack thereof—a culturally homogenous group of annotators is not capable of capturing this.
+
+
+2. Evaluation Scale: 1 (sad) to 9 (happy)
+
+Choice: The happiness value was an integer value from 1–9, where the annotators had to provide one happiness value per word.
+
+Consequence: The continuous nature of emotional valence is discretized within few levels which may lose fine level distinctions. Furthermore, neutral or emotionally obscure words are assigned numercial values and they tend to cluster around 5, which can be interpreted as being “mildly positive/negative” although they do not have much emotion (Barak et al., 2013).
+
+Example: Some function words like the and and have average ratings close to 5. 22–5.24, nearly midpoint. In the majority of situations, these expressions have minimal emotional impact and influence, but their “pseudo-neutral” scores may be misinterpreted as faintly positive or negative in some downstream interpretation as discussed in Section 4.
+
+
+3. Words are selected from the Top‑5000 of Four Corpora
+
+Choice: the wordlist was formed by extracting the top 5,000 most frequent words from each of the four corpora (Twitter, Google Books, New York Times, and song lyrics) and then combining them using union by removing any duplicates.
+Consequence: The high-frequency word only dataset does not contain any low-frequency terms that are culturally sensitive (e.g., new slang, specialized jargon, dialectal words). In addition, each corpus corresponds to a different language register: Twitter is informal online conversation, NYT is formal journalism, Google Books is written prose, and Lyrics is poetic/emotional expression. Therefore, the dataset is biased toward these two registers and may not be representative of all language use cases.
+Example: hahaha (laughter) is widely used in Twitter and lyrics (with non‑missing ranks), but it is not found at all in the NYT collection (rank = --). This is an example of how formal written news almost never has such onomatopaeia; yet the word’s happiness score (7.94) is only derived from its use in informal and musical language. 
+
+
+4. Context should be ignored: one mean value per word
+
+Choice: We collapsed all individual scores for one word to a single fixed value, ignoring the fact that a word may have multiple senses in different context.
+
+Consequence: Polysemy and contextual variation are neutralized. Words can be positive in one sense and negative in another, but the dataset only offers a single, averaged score. However, while the standard deviation indicates such disagreement, it is not capable of explaining why.
+
+Example: In the case of words like fucking and fucked there are very high standard deviations (>2.5), highlighting the dual usage of these words as expletives out of anger/negativity (e.g., “this is fucking terrible”) as well as intensifiers in positive (e.g., “fucking awesome”) expressions. The mean score of the dataset (≈4.64) hides this important difference.
+
+
+5. Static Snapshot: Data Collected ca. 2011
+
+Choice: The data consisted in a static view of word happiness in 2011.
+
+Consequence: Languages change, they grow new words, and have new emotional overtones for old words. Application of this dataset for studying present time texts might result in obsolete or misleading insights, at least as far as the Internet slang is concerned.
+
+Example: The word groovy (average 6. 54) was a buzzword of the 1970s with an optimistic, nostalgic connotation. By 2011 its use had decreased and now it is infrequent. However, it would be of little use for scoring recent Twitter data as the word not only has much lower frequency but may have changed semantic. 
+
+
 ## 4.3
 Write a short “instrument note” (200–400 words):
 
