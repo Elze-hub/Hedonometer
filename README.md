@@ -1,5 +1,9 @@
-# labMT 1.0 
+## Happiness According to Mechanical Turks:  
+## Quantitative + Qualitative Exploration of the Hedonometer (labMT 1.0) Dataset
+By applying quantitative and qualitative data analysis to labMT 1.0 dataset, we examine how accurate and reliable the results of their data collection are. In 
+addition, we make suggestions about application of their research.
 
+# DATA 
 # 1
 ## 1.1
 
@@ -83,7 +87,7 @@ notes on missingness:
 Choose 2–3 sanity checks and explain what they tell you about data quality.
 
 I consider "making sense" as a visible contrast between the most positive and most negative words. These make sense to me as the most positive section have words that indicate happiness: laughter, love, joy, excellent, and the negative words have dark words: suicide, murder, cancer, death. There are no contrasts against each other in the positive word list and the same goes for the negative word list. 
-
+# RESULTS
 # 2
 ## 2.1
 Interpret the histogram in words. Is the distribution centered? skewed? clustered?
@@ -122,7 +126,7 @@ Write an interpretative paragraph addressing things like:
 
 
 Your goal is not to be “right,” but to show careful interpretive reasoning.
-
+# REFLECTION
 # 4 
 
 ## 4.1
@@ -236,5 +240,7 @@ Provide “neutral” button to prevent scoring of function words.
 Add contemporary slang and a few tail words (possibly from reddit/tiktok) to the word list. Periodically update the dataset to monitor semantic drifts.
 Publish full rating distributions, not just means.
 These changes would make the instrument more subtle, more globally appropriate, and more time-sensitive. 
+ # HOW TO RUN THE CODE
+ # CREDITS
 
 
