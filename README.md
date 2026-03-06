@@ -251,6 +251,30 @@ These changes would make the instrument more subtle, more globally appropriate, 
 •  It then performs quantitative analysis of happiness scores, standard deviations, and corpus-specific frequency ranks <br/>
 •  Finally, it generates plots including a histogram of happiness distribution, most disagreed-about words, and corpus comparisons<br/>
 
+
+ ### Setup Steps
+ #### 1. Create virtual environment (.venv) 
+ python -m venv .venv
+ #### 2. Start .venv 
+ ##### On Windows (PowerShell):
+.\.venv\Scripts\Activate
+
+##### On macOS / Linux:
+source .venv/bin/activate
+
+ #### 3. Install requirements
+pip install -r requirements.txt
+
+### Scripts to run
+##### Task 1.1: python src/Task_1.1.py
+##### Task 1.2: python src/Task_1.2.py
+##### Task 1.3: python src/Task_1.3.py
+##### Task 2.1: python src/Task_2.1.py
+##### Task 2.2: python src/Task_2.2.py
+##### Task 2.3: python src/Task_2.3.py
+##### Task 3.1: python src/Task_3.1.py
+
+
  # CREDITS
 Repo and workload lead - Elze <br/>
 Data wrangler - Asena <br/>
