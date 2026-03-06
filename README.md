@@ -43,7 +43,7 @@ what it represents: the average of happiness ratings for a specific word
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 
 - happiness_standard_deviation
 
@@ -59,7 +59,7 @@ what it represents: the sum rankings that Mechanical Turk 1.0 assigned to Twitte
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 
 - google_rank
 
@@ -67,21 +67,21 @@ what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to Goo
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 - nyt_rank 
 
 what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to New York Times posts
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 - lyrics_rank 
 
 what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to lyrics of songs
 
 type: floating-point number
 
-notes on missingness: 
+notes on missingness: none.
 
 ## 1.3 
 Choose 2–3 sanity checks and explain what they tell you about data quality.
@@ -90,7 +90,7 @@ I consider "making sense" as a visible contrast between the most positive and mo
 # RESULTS
 # 2
 ## 2.1
-![image alt](https://github.com/Elze-hub/Hedonometer/blob/fbd7d30cadb647461cc1e58b101587da45f2d4ec/happiness_distribution.png)
+![image alt](https://github.com/Elze-hub/Hedonometer/blob/fbd7d30cadb647461cc1e58b101587da45f2d4ec/happiness_distribution.png) <br/>
 Interpret the histogram in words. Is the distribution centered? skewed? clustered?
 The distribution is centered around between 5-6 with average standard deviation of 1.38.
 Identify 1 pattern you did not expect.
@@ -242,6 +242,18 @@ Add contemporary slang and a few tail words (possibly from reddit/tiktok) to t
 Publish full rating distributions, not just means.
 These changes would make the instrument more subtle, more globally appropriate, and more time-sensitive. 
  # HOW TO RUN THE CODE
- # CREDITS
+•  Make sure you have Python 3.8+ installed <br/>
+•  Install the required dependencies that are listed in requirements.txt <br/>
+•  Download the labMT 1.0 dataset from the labMT project page and place it in the root of the repository <br/>
+•  Run the analysis script from your terminal <br/>
+•  The script loads the labMT 1.0 dataset, skipping metadata rows and replacing missing values <br/>
+•  It then performs quantitative analysis of happiness scores, standard deviations, and corpus-specific frequency ranks <br/>
+•  Finally, it generates plots including a histogram of happiness distribution, most disagreed-about words, and corpus comparisons<br/>
 
+ # CREDITS
+Repo and workload lead - Elze <br/>
+Data wrangler - Asena <br/>
+Quantitative analyst - Stan <br/>
+Qualitative analyst - Meeli <br/>
+Provenance and critique lead - Bijia
 
