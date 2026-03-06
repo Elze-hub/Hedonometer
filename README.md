@@ -116,18 +116,21 @@ Give one concrete example of a word that is “common” in one corpus but missi
 another, and interpret why that might be
 
 # 3
-Due to family problems, we were not able to finish our qualitative analysis. <br/>
-Write an interpretative paragraph addressing things like:
 
-• What meanings/contexts the words can have
+The words chosen are 'hehehe', 'ipod', 'groovy', 'gr8' and 'thou'. These words were picked as they represent different time periods and language communities. 'groovy', 'ipod' and 'thou' were picked as they are older in terms of modernity, which can change emotional value overtime. 'hehehe' and 'gr8' were picked as they represent a more modern-time speaking, used mainly through online chats and social media. 
 
-• Why an happiness score might be high/low
+Word 1: The word "hehehe" is used as an informal way of laughing online, through games, social media, online chats, etc. Unlike it's family word "hahaha", "hehehe" is often used and seen as michevious or teasing. The happiness average is 7.08, being more positive in the rankings. The reason it can this high is because it signals playfulness or friendliness. This word is more commonly used with younger users. 
 
-• What kinds of voices or communities might use it differently <br/>
+Word 2: For "ipod", the happiness average was 6.56. This is still ranked mostly positive, as people associate ipods with music, nostalgia, and relaxed moments. People may use this words when reminiscing, while others may associate it with the brand "Apple", which can be why it's leaning more towards neutral than overly positive. Those who grew up with ipods versus the younger generation who haven't used it would use and have emotion towards this word differently, while the younger generation doesn't have the same attatchment. 
+
+Word 3: For word 3, "groovy" was ranked at 6.54, with a similar ranking to "ipod". This word can be used as "fun" or "cool", and associates with the 1960's and 70's. This word carries an upbeat vibe which can explain the higher positive score. Others may find this word to be cringey or old, which would lower the score. Those who grew up in the generation of it most used may use it more sincerely than those who didn't grow up in the 60's and 70's.
+
+Word 4: "gr8" is a short way for texting 'great', most commonly used through texting, originating from SMS text character limit. Informal messaging and memes is where this word is most commonly used. As this word means 'great', the overall happiness score is ranked higher as 'great' is a positive word. The younger generation is more likely to use this, while more formal or older texters would use 'great'. 
+
+Word 5: For 'thou', it is a dialect form of 'you', used in Early Modern English. It can be used in a parody way of people inmitating "old" English. The happiness score is neutral, but slightly more positive (5.14), this can be because it is used as a neutral word (you). The word itself does not carry any negative or positive content. Scholars and students may use this word in a Shakespearian way, while fantasy role-players (and anyone using it in this way) may use the word in a joking way, or for theatrics. "gr8" had an average happiness score of 6.26. 
 
 
 
-Your goal is not to be “right,” but to show careful interpretive reasoning.
 # REFLECTION
 # 4 
 
