@@ -116,14 +116,15 @@ Give one concrete example of a word that is “common” in one corpus but missi
 another, and interpret why that might be
 
 # 3
-
+Due to family problems, we were not able to finish our qualitative analysis. <br/>
 Write an interpretative paragraph addressing things like:
 
 • What meanings/contexts the words can have
 
 • Why an happiness score might be high/low
 
-• What kinds of voices or communities might use it differently
+• What kinds of voices or communities might use it differently <br/>
+
 
 
 Your goal is not to be “right,” but to show careful interpretive reasoning.
