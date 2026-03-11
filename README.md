@@ -1,5 +1,5 @@
 # How to download the Yelp Dataset
-We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. 
+We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
 ### Configure Kaggle credentials (one‑time, per machine)
 
@@ -55,7 +55,9 @@ After extraction, data/raw/ should contain files such as:
 
 1. From the project root (example: C:\Users\yourname\Desktop\coding-humanities\Hedonometer)
 
-```git status```
+```
+git status
+```
 
 2. Only add files that should be in the repo:
 
@@ -82,3 +84,6 @@ git add .gitignore
 git commit -m "Added yelp reviews processed"
 ```
 4. Push 
+```
+git push
+```
