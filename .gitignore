@@ -1,1 +1,12 @@
 ﻿.venv/‘n__pycache__/‘n.DS_Store
+
+# Local environment
+.env
+.venv/
+
+# Raw Yelp dataset (large, not for GitHub)
+data/raw/yelp-dataset.zip
+data/raw/yelp-dataset/
+
+# Large processed tips file (too big for GitHub; regenerated via script)
+data/processed/yelp_tips_processed.csv
