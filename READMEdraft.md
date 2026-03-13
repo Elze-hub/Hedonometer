@@ -223,7 +223,7 @@ What would I trust this dataset to measure well:
 2. What would I refuse to claim based on it:
 I believe these scores do not apply to all situations. They do not take into account cultural differences, shifts in meaning, or consider context. Any claim that a text is “happy” simply because it scored highly is more like a rough estimate rather than an accurate interpretation.
 
-What improvements would I make if I rebuilt it:
+3. What improvements would I make if I rebuilt it:
 If I can rebuild it today, I'd:
 
 Choose human subjects from different cultures and regions;
