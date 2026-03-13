@@ -217,28 +217,21 @@ Write a short “instrument note” (200–400 words):
 • What improvements would you make if you rebuilt it?
 
 4.3
-What I would trust it to tell me about
-I'd trust this dataset to provide a sense of the overall emotional valence of high-frequency English words to a US-based, 2011 Internet-using population. It does identify certain highly positive/negative terms (e.g., laughter, suicide) with high confidence and points out disputed terms through standard deviation (e.g., fucking, slut) However. It is fine to shift with the hull-moving trends of sentiment monitoring in corpora like its inspirations (Twitter, lyrics, and so on).
+What would I trust this dataset to measure well: 
+1. I believe this dataset can measure the overall emotional trends of internet users toward high-frequency English words around 2011. It is capable of identifying strongly positive and negative words. It is very useful for tracking overall emotional trends in corpora such as Twitter and song lyrics.
 
-What I will not claim
-Not that I think these scores are applicable to all people in all times and all contexts. They do not account for cultural differences (e.g., whiskey ratings could be different elsewhere), semantic change (e.g., groovy), and most importantly context (e.g., fucking could be positive or negative). Any such assertion that a text is “happy” just because it has high scores on such static, decontextualized measures is at best a rough estimate, not a precise reading.
+What would I refuse to claim based on it:
+I believe these scores do not apply to all situations. They do not take into account cultural differences, shifts in meaning, or consider context. Any claim that a text is “happy” simply because it scored highly is more like a rough estimate rather than an accurate interpretation.
 
-How to make it better
-If I were building it today, I'd:
-Variety of annotators (age, culture, geography) more numbers of annotators=more diverse opinions.
+What improvements would I make if I rebuilt it:
+If I can rebuild it today, I'd:
+Choose human subjects from different cultures and regions;
 Gather ratings in short sentences to see the effect of context.
 Provide “neutral” button to prevent scoring of function words.
-Add contemporary slang and a few tail words (possibly from reddit/tiktok) to the word list. Periodically update the dataset to monitor semantic drifts.
-Publish full rating distributions, not just means.
-These changes would make the instrument more subtle, more globally appropriate, and more time-sensitive. 
- # HOW TO RUN THE CODE
-•  Make sure you have Python 3.8+ installed <br/>
-•  Install the required dependencies that are listed in requirements.txt <br/>
-•  Download the labMT 1.0 dataset from the labMT project page and place it in the root of the repository <br/>
-•  Run the analysis script from your terminal <br/>
-•  The script loads the labMT 1.0 dataset, skipping metadata rows and replacing missing values <br/>
-•  It then performs quantitative analysis of happiness scores, standard deviations, and corpus-specific frequency ranks <br/>
-•  Finally, it generates plots including a histogram of happiness distribution, most disagreed-about words, and corpus comparisons<br/>
+Add contemporary slang and a few tail words to the word list. Through that to update the dataset to monitor semantic drifts. For example, consider to add the data set from Reddit or Tiktok;
+Use full rating distributions rather than just average numbers.
+These changes would make the instrument more detailed, more fit to the global culture, and more accurate to daily life in different period. 
+
 
 
  ### Setup Steps
