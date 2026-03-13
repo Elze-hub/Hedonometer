@@ -220,16 +220,21 @@ Write a short “instrument note” (200–400 words):
 What would I trust this dataset to measure well: 
 1. I believe this dataset can measure the overall emotional trends of internet users toward high-frequency English words around 2011. It is capable of identifying strongly positive and negative words. It is very useful for tracking overall emotional trends in corpora such as Twitter and song lyrics.
 
-What would I refuse to claim based on it:
+2. What would I refuse to claim based on it:
 I believe these scores do not apply to all situations. They do not take into account cultural differences, shifts in meaning, or consider context. Any claim that a text is “happy” simply because it scored highly is more like a rough estimate rather than an accurate interpretation.
 
 What improvements would I make if I rebuilt it:
 If I can rebuild it today, I'd:
+
 Choose human subjects from different cultures and regions;
-Gather ratings in short sentences to see the effect of context.
-Provide “neutral” button to prevent scoring of function words.
+
+Gather ratings in short sentences to see the effect of context;
+
+Provide “neutral” button to prevent scoring of function words;
+
 Add contemporary slang and a few tail words to the word list. Through that to update the dataset to monitor semantic drifts. For example, consider to add the data set from Reddit or Tiktok;
-Use full rating distributions rather than just average numbers.
+
+Use full rating distributions rather than just average numbers;
 These changes would make the instrument more detailed, more fit to the global culture, and more accurate to daily life in different period. 
 
 
