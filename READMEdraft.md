@@ -135,35 +135,29 @@ Word 5: For 'thou', it is a dialect form of 'you', used in Early Modern English.
 # 4 
 
 ## 4.1
-In your own words, reconstruct the dataset’s generation pipeline as a sequence of steps.
+The labMT 1.0 list was created using a quantitative methodology to measure the emotional value of commonly used English words. The pipeline is as follows:
 
-(You can present this as a numbered list, diagram, or short narrative.)
-
-The labMT 1.0 lexicon was created using a quantitative methodology to measure the emotional valence of commonly used English words. The pipeline is as follows:
-
-Candidate word collection
-High-frequency words that are domain specific were taken from four vast corpora constructed from different sources:
-Twitter – informal social media language.
-Google Books – a generalised sample of published books, representing written language.
-New York Times – formal journalistic writing.
-Lyrics – language of popular music containing emotional/cultural expressions.
+Candidate word collection:
+The researchers selected high-frequency words from four large text corpus as candidates:
+Twitter: informal social media language.
+Google: a generalised sample of Google posts, representing written language.
+New York Times: formal journalistic writing.
+Lyrics: language of popular music containing emotional and cultural expressions.
 The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
 
-Happiness scoring via crowdsourcing
-The gathered words were given to the people on Amazon Mechanical Turk. Annotators were invited to rate a term from 1 (sad) to 9 (happy) based on how they felt about the term. For trustworthiness, words were rated by several independent annotators (usually more than 10).
+recruit online human subjects by using Mechanical Turk 1.0. Each subjects are required to rank each words from 1(saddest) to 9(happiest). To ensure the reliablility of rankings, every words will be ranked singly by multiple subjects.
 
-Statistical aggregation
-The rater level scores for each word were aggregated to estimate:
-Mean happiness (happiness_average) - the average of all the ratings that can be interpreted as the average emotional valence for the word. Standard deviation (happiness_standard_deviation) – standard deviation of ratings, depicting how much the annotators disagree about the emotional meaning of the word.
+Calculation of all scores for each word:
+Mean happiness (happiness_average):  the average of happiness ratings for a specific word.
 
-Happiness ranking
-Then words are ordered according to their mean happiness from highest to lowest to compute a global happiness rank (happiness_rank). The word ranked 1 as most positive was the highest rated word.
+Standard deviation (happiness_standard_deviation): the dispersion of happiness ratings around a specific word.
 
-Corpus specific frequency ranks
-For Each word A number of its frequency ranks within original four corpora were considered (twitter_rank, google_rank, nyt_rank, lyrics_rank).Rank If the word was not in the top 5,000 words of a particular corpus, the rank was treated as missing (-- in the raw file, then converted to NaN). 
+according to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happinest score).
 
-Final dataset assembly
-All information — word, happiness rank, average score, standard deviation and the four corpus ranks, was merged into a single tab separated file (labMT 1.0). The first rows are metadata rows, then there is a header row, and the data rows. This bestet will serve as the basis for the “hedonometer”.
+For each word, record seperately their ranks in their original corpus (twitter_rank, google_rank, nyt_rank, lyrics_rank). If the word was not in the top 5,000 words of a particular corpus, the rank was record as missing. 
+
+All information was merged into a single tab separated file (labMT 1.0). The first rows are metadata rows, then there is a header row, and the data rows. This bestet will serve as the basis for the “hedonometer”.
+
 
 
 ## 4.2 
