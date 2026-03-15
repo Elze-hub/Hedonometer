@@ -132,7 +132,7 @@ Word 5: For 'thou', it is a dialect form of 'you', used in Early Modern English.
 
 
 # REFLECTION
-# 4 
+# 4 (During the revision process, I refined the wording throughout the entire fourth section to make it more appropriate for this assignment.)
 
 ## 4.1
 The labMT 1.0 list was created using a quantitative methodology to measure the emotional value of commonly used English words. The pipeline is as follows:
