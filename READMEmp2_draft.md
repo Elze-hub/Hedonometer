@@ -87,3 +87,7 @@ git commit -m "Added yelp reviews processed"
 ```
 git push
 ```
+
+## Analyzing Yelp reviews with hedonometer
+We applied hedonometer to texts entries in Yelp reviews (find it in src/Yelp_hedonometer_analysis). The results have us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
+![Histogram](figures/yelp_reviews_happiness_distribution.png)
