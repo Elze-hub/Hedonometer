@@ -1,121 +1,129 @@
 ## Happiness According to Mechanical Turks:  
 ## Quantitative + Qualitative Exploration of the Hedonometer (labMT 1.0) Dataset
-By applying quantitative and qualitative data analysis to labMT 1.0 dataset, we examine how accurate and reliable the results of their data collection are. In 
-addition, we make suggestions about application of their research.
+By applying quantitative and qualitative data analysis to labMT 1.0 dataset, we examine how accurate and reliable the results of their data collection are. In addition, we make suggestions about application of their research.
 
-# DATA 
-# 1
-## 1.1 
+# Data
 
-Explain how you loaded the file (1–3 sentences):
-
-The file was loaded by reading a tab-delimited .txt dataset into a pandas DataFrame while skipping the first non-data rows and then converting the rank-related columns into numeric values. After loading, all "--" placeholders were replaced with proper missing values (NaN).
-
-• State the shape of the dataset (rows × columns):
+The file was loaded by reading a tab-delimited .txt dataset into a pandas DataFrame while skipping the first non-data rows and then converting the rank-related columns into numeric values. After loading, all "--" placeholders were replaced with proper missing values (NaN). The missing values indicate that these items were not counted in their respective ranks.
 
 The dataset contains the 10222 rows and 8 columns.
 
-• Give one sentence explaining what a missing rank (--) means in this dataset:
+## Data dictionary
 
-The missing values indicate that these items were not counted in the respective ranks?
+| Column name | Representation | Type | Notes on missingness |
+|:-----------:|:--------------:|:----:|:--------------------:|
+| word        | Item Mechanical Turk 1.0 evaluated on the happiness scale | string | none |
+| happiness_rank | How happy the word is considered by MT 1.0 | integer | none |
+| happiness_average | The average of happiness ratings for a specific word | floating-point number | none |
+| happiness_standard_deviation | The dispersion of happiness ratings around a specific word | floating-point number | none |
+| twitter_rank | The sum of rankings that MT 1.0 assigned to Twitter posts | floating-point number | ??? |
+| google_rank | The sum of rankings that MT 1.0 assigned to Google posts | floating-point number | ??? |
+| nyt_rank | The sum of rankings that MT 1.0 assigned to New York Times posts | floating-point number | ??? |
+| lyrics_rank | The sum of rankings that MT 1.0 assigned to lyrics of songs | floating-point number | ??? |
 
 
-## 1.2 
-- word 
 
-what it represents: an item that Mechanical Turk 1.0 evaluated on the happines scale
+## Sanity checks
 
-type: string
+The data includes no duplicated words. This was checked with a Boolean mask, where values appearing only once were marked 'False' and those appearing several times 'True'. This resulted in an empty set, meaning no duplicate words were found in the list. 
 
-notes on missingness: none.
+15 random rows were selected from the dataframe. We used a fixed seed number (42!) for reproducibility reasons. On observation, nothing seemed out of the expected. 
 
-- happiness_rank
+A list of 10 most positive and 10 most negative words by happiness average was composed. Both tables have been added below.
 
-what it represents: how happy the word is considered by Mechanical Turk 1.0
+### 10 most positive words
+| # | Word | Happiness average |
+|:-:|:----:|:-----------------:|
+| 1. | laughter | 8.50 |
+| 2. | happiness | 8.44 |
+| 3. | love | 8.42 |
+| 4. | happy | 8.30 |
+| 5. | laughed | 8.26 |
+| 6. | laugh | 8.22 |
+| 7. | laughing | 8.20 |
+| 8. | laughs | 8.18 |
+| 9. | excellent | 8.18 |
+| 10. | joy | 8.16 |
 
-type: integer
+### 10 most negative words
+| # | Word | Happiness average |
+|:-:|:----:|:-----------------:|
+| 1. | suicide | 1.30 |
+| 2. | terrorist | 1.30 |
+| 3. | rape | 1.44 |
+| 4. | murder | 1.48 |
+| 5. | terrorism | 1.48 |
+| 6. | cancer | 1.54 |
+| 7. | death | 1.54 |
+| 8. | died | 1.56 |
+| 9. | kill | 1.56 |
+| 10. | killed | 1.56 |
 
-notes on missingness: none.
+As we can see from both lists, words with the same root occur throughout the spectrum. The original Hedonometer project treated these words as individual occurences due to each form having a slighthly different emotional score - for example 'happiness' feels positive to more people as it involves an unspecified number of participants (free-to all), whereas 'happy' implies a feeling for a single person or a specified group (can be free for all, but not necessarily). 
 
-- happiness_average
 
-what it represents: the average of happiness ratings for a specific word 
+We consider "making sense" as a visible contrast between the most positive and most negative words. These make sense as the most positive section have words that indicate happiness: laughter, love, joy, excellent, and the negative words have dark words: suicide, murder, cancer, death. 
 
-type: floating-point number
-
-notes on missingness: none.
-
-- happiness_standard_deviation
-
-what it represents: the dispersion of happiness ratings around a specific word
-
-type: floating-point number
-
-notes on missingness: none.
-
-- twitter_rank
-
-what it represents: the sum rankings that Mechanical Turk 1.0 assigned to Twitter posts
-
-type: floating-point number
-
-notes on missingness: none.
-
-- google_rank
-
-what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to Google posts
-
-type: floating-point number
-
-notes on missingness: none.
-- nyt_rank 
-
-what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to New York Times posts
-
-type: floating-point number
-
-notes on missingness: none.
-- lyrics_rank 
-
-what it represents: the sum of rankings that Mechanical Turk 1.0 assigned to lyrics of songs
-
-type: floating-point number
-
-notes on missingness: none.
-
-## 1.3 
-Choose 2–3 sanity checks and explain what they tell you about data quality.
-
-I consider "making sense" as a visible contrast between the most positive and most negative words. These make sense to me as the most positive section have words that indicate happiness: laughter, love, joy, excellent, and the negative words have dark words: suicide, murder, cancer, death. There are no contrasts against each other in the positive word list and the same goes for the negative word list. 
 # RESULTS
-# 2
-## 2.1
-![image alt](https://github.com/Elze-hub/Hedonometer/blob/fbd7d30cadb647461cc1e58b101587da45f2d4ec/happiness_distribution.png) <br/>
-Interpret the histogram in words. Is the distribution centered? skewed? clustered?
+# Quantitative exploration
+## Distribution of happiness scores
+![Happiness distribution](figures/happiness_distribution.png) <br/>
+
 The distribution is centered around between 5-6 with average standard deviation of 1.38.
-Identify 1 pattern you did not expect.
-The pattern that surprised us is that the frequency between 4 and 5,5 is very stark compared to difference between 5,5 and 7. Overall, more people seem to slightly happier above average than below it.
+
+The pattern that surprised us is that the frequency between 4 and 5,5 is very stark compared to difference between 5,5 and 7. Overall, more words are identified as positive in comparison to negative.
 
 
-## 2.2
-Pick 5 of the “most disagreed-about” words and discuss why they might be
-contested:
-fucking/fucked/fuckin/fuck - could be used in an angry content but also in content about pleasure or excitement
-pussy - could be used in content about pleasure but also as an insult
-whiskey - meaning depends on personal preference
-slut - could be used in content about pleasure but also as an insult
-cigarettes/cigarette - meaning depends on personal preference
+## Contested words
 
-• Connect your qualitative interpretation to the quantitative pattern.
-Words 'fucking','fucked', 'fuckin' and 'fuck' have highest standard deviation because they can be used in the most contexts compared to other contested words.
+As the top 15 words with the most disagreement between observers (highest standard deviation) had a lot of root-related overlap, we have compounded them as such in order to explore the contrasts between meanings with different morphological endings.
 
-## 2.3
-Interpret what your plot suggests about the four corpora.
+| # | Word(s) | Possible reason for disagreement | Happiness Average | Happiness SD |
+|:-:|:-------:|:--------------------------------:|:-----------------:|:-----------:|
+| 1. / 2. / 3. / 8. | fucking/fuckin/fucked/fuck | Could be used in an angry context, as well as in a pleasure or excitement context, can also function as an 'amplifier'. | 4.64 / 3.86 / 3.56 / 4.14 | 2.9260 / 2.7405 / 2.7117 / 2.5794|
+| 4. | pussy | Could be used in pleasure context, for a pussycat, or as an insult | 4.80 | 2.6650 |
+| 5. | whiskey | Meaning depends on personal preference | 5.72 | 2.6422 |
+| 6. | slut | Could be used in pleasure context, as well as an insult | 3.57 | 2.6300 |
+| 7. / 10. | cigarettes/cigarette | Meaning depends on personal preference | 3.31 / 3.09 | 2.5997 / 2.5163 |
 
-Give one concrete example of a word that is “common” in one corpus but missing in
-another, and interpret why that might be
 
-# 3
+It is visible from the first root 'fuck' that morphological endings play a role while considering their happiness score. While the overall sentiment of this root remains fairly negative, words such as 'fucking' and 'fuck' seem to have slightly higher happiness average than the two other forms. The word 'fuckin' could be just a typo (missing the 'g' at the end) and therefore, while still used in similar contexts as 'fucking', it skews the data. It could, however, be a stylistic choice. 
+
+Furthermore, 'fuck' derivations can work as a context amplifier, so their happiness value might be affected by the words preceding or following, resulting in a bleeding effect of bias. The standard deviation, therefore, illustrates an effect on context-sensitive words.
+
+Words such as 'whisky' and 'cigarette'/'cigarettes' tend to hold a spectrum of opinions, depending on the personal and cultural differences. 'Whisky' displays an above-average happiness score of 5.72, while holding the 5th place in the top 15 words with the highest disagreement (SD = 2.6422). This could be due to views towards alcohol from different cultures, however we hypothesis the true reason might be the Great Whisky Shortage of 2013, where the demand for whisky outgrew the supply, resulting distilleries in lowering their proofs. These actions brought on major consumer backlash, possibly resulting in the word being used in negative contexts. 
+
+Similar applies to 'cigarette'/'cigarettes', as the world was taking action towards smoking and the rise of the electronic cigarettes/vapes. 
+![Happiness disagreement](figures/happiness_disagreement.png)
+
+As seen from the plot above, words near the neutral midpoint tend to have a lower standard deviation, meaning people agree more about neutral words, whereas words with a high positive or negative average show higher variability. This suggest that emotional words evoke more disagreement or context-dependent interpretation. 
+
+## Corpus comparison
+![Unique words per corpus](figures/corpus_unique_words.png)
+
+As seen from the image above, Twitter resulted as the corpus with the least amount of unique words, while Lyrics displayed the highest percentage of unique words. This could be credited towards creative or poetic language, that often does not play by grammatical rules (resulting in many derivational forms of the same root), as well as a broad topic of themes, resulting in a wide vocabulary.  
+
+Google Books, our second ranking, similarly displays variety in unique items, consistent with long-form writing, followed shortly by New York Times. Possible difference is the journalistic clarity and conciseness.
+
+Twitter displays the lowest unique-word percentage, possibly due to its short-message form and trending topics, leading to repetition of common words.
+
+![Corpus Overlap](figures/corpus_overlap_heatmap.png)
+
+The heatmap above illustrates the vocabulary overlaps between corpora. Based on the deepness of the color indicated, Twitter and Lyrics share the most overlap among the top 5000 words. This is possibly due to the highly informal, conversational and emotionally expressive language, characteristic to both corpora.
+
+Similarly, New York Times and Google Books overlap with each other due to more formal, standardized vocabulary. 
+
+Twitter displays the lowest overlap with New York Times and Google Books, reflecting differences in style, register and topic. 
+
+![Twitter vs. NYT rank scatter](figures/twitter_nyt_rank_scatter.png)
+
+While Twitter can be categorized as an emotional and expressive corpora, and New York Times as a standardized one, some similarities remain. As seen on the scatterplot above, a cluster is forming on the lower left of the image, signifying that high-frequency words are common across both corpora. 
+
+As the image is covered in scattered points, it is clear that both corpora are largely different, some words rank very highly in the Twitter corpora, whereas they are ranked low in the New York Times corpora and vice-versa. 
+
+A word to illustrate this is 'lol', common in Twitter, where informal conversations and abbreviated expressions are the norm, however rare or absent in New York Times or Google Books, as these sources tend to maintain formal editorial standards.
+
+# Qualitative exploration
 
 The words chosen are 'hehehe', 'ipod', 'groovy', 'gr8' and 'thou'. These words were picked as they represent different time periods and language communities. 'groovy', 'ipod' and 'thou' were picked as they are older in terms of modernity, which can change emotional value overtime. 'hehehe' and 'gr8' were picked as they represent a more modern-time speaking, used mainly through online chats and social media. 
 
@@ -132,27 +140,25 @@ Word 5: For 'thou', it is a dialect form of 'you', used in Early Modern English.
 
 
 # REFLECTION
-# 4 (During the revision process, I refined the wording throughout the entire fourth section to make it more appropriate for this assignment.)
 
-## 4.1
 The labMT 1.0 list was created using a quantitative methodology to measure the emotional value of commonly used English words. The pipeline is as follows:
 
-Candidate word collection:
-The researchers selected high-frequency words from four large text corpus as candidates:
+Candidate word collection: The researchers selected high-frequency words from four large text corpus as candidates:
 Twitter: informal social media language.
 Google: a generalised sample of Google posts, representing written language.
 New York Times: formal journalistic writing.
 Lyrics: language of popular music containing emotional and cultural expressions.
+
 The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
 
-recruit online human subjects by using Mechanical Turk 1.0. Each subjects are required to rank each words from 1(saddest) to 9(happiest). To ensure the reliablility of rankings, every words will be ranked singly by multiple subjects.
+Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(saddest) to 9(happiest). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.
 
 Calculation of all scores for each word:
 Mean happiness (happiness_average):  the average of happiness ratings for a specific word.
 
 Standard deviation (happiness_standard_deviation): the dispersion of happiness ratings around a specific word.
 
-according to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happinest score).
+According to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happinest score).
 
 For each word, record seperately their ranks in their original corpus (twitter_rank, google_rank, nyt_rank, lyrics_rank). If the word was not in the top 5,000 words of a particular corpus, the rank was record as missing. 
 
@@ -160,19 +166,10 @@ All information was merged into a single tab separated file (labMT 1.0). The f
 
 
 
-## 4.2 
-Discuss at least five consequences of the dataset’s design choices. For each consequence,
-include:
+## Consequences of design
 
 
-• The choice (what did they do?)
-
-• The consequence (what does this make easier/harder to see?)
-
-• A concrete example from your exploration (a word, a plot pattern, or a missingness pattern)
-
-
-1: Only obtained the happiness ratings fromonly from the human subjects on Mechanical Turk 1.0. 
+1: Only obtained the happiness ratings from human sobservers on Mechanical Turk 1.0. 
 
 Consequence: Since we cannot confirmed that the human subjects on the Mechanical Turk 1.0 platform include people from all cultures around the world, it is not possible to have an answer that represents the emotions of humans regarding language on a global scale.
 
@@ -207,24 +204,16 @@ Consequence: 2011 is the time when this data sets is collected, which is too ear
 Example: Words like “groovy” (average score of 6.54) were popular in the 1970s and carry positive emotions, but they may have become less common after 2011. When analyzing recent Twitter text, the frequency of this word is extremely low.
 
 
-## 4.3
-Write a short “instrument note” (200–400 words):
+## Instrument note
 
-• What would you trust this dataset to measure well?
 
-• What would you refuse to claim based on it?
-
-• What improvements would you make if you rebuilt it?
-
-4.3
-What would I trust this dataset to measure well: 
-1. I believe this dataset can measure the overall emotional trends of internet users toward high-frequency English words around 2011. It is capable of identifying strongly positive and negative words. It is very useful for tracking overall emotional trends in corpora such as Twitter and song lyrics.
+1. We believe this dataset can measure the overall emotional trends of internet users toward high-frequency English words. It is capable of identifying strongly positive and negative words. It is very useful for tracking overall emotional trends in corpora such as Twitter and song lyrics.
 
 2. What would I refuse to claim based on it:
-I believe these scores do not apply to all situations. They do not take into account cultural differences, shifts in meaning, or consider context. Any claim that a text is “happy” simply because it scored highly is more like a rough estimate rather than an accurate interpretation.
+We believe these scores do not apply to all situations. They do not take into account cultural differences, shifts in meaning, or consider context. Any claim that a text is “happy” simply because it scored highly is more like a rough estimate rather than an accurate interpretation.
 
 3. What improvements would I make if I rebuilt it:
-If I can rebuild it today, I'd:
+If we would rebuild it today, we would:
 
 Choose human subjects from different cultures and regions;
 
@@ -265,7 +254,7 @@ pip install -r requirements.txt
  # CREDITS
 Repo and workload lead - Elze <br/>
 Data wrangler - Asena <br/>
-Quantitative analyst - Stan <br/>
-Qualitative analyst - Meeli <br/>
+Qualitative analyst - Stan <br/>
+Quantitative analyst - Meeli <br/>
 Provenance and critique lead - Bijia
 
