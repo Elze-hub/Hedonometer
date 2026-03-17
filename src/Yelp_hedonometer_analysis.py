@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-data = pd.read_csv('data/processed/yelp_reviews_processed.csv')
+data = pd.read_csv('data/processed/yelp_tips_reviews_sample.csv')
 
 # Load hedonometer word scores
 labmt = pd.read_csv('data/processed/hedonometer_data.csv')
@@ -29,7 +29,7 @@ plt.hist(data['happiness_average'].dropna(), bins=10, edgecolor='black')
 plt.xlabel('Happiness Score')
 plt.ylabel('Number of Reviews')
 plt.title('Distribution of Happiness in Yelp Reviews')
-plt.savefig(os.path.join(figures_dir, 'yelp_reviews_happiness_distribution.png'))
+plt.savefig(os.path.join(figures_dir, 'yelp_reviews_tips_happiness_distribution.png'))
 plt.show()
 
 
