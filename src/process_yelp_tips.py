@@ -29,7 +29,7 @@ def main():
         raise FileNotFoundError(f"{business_path} not found. Did you unzip the dataset?")
 
     print("Loading tips...")
-    tips = load_json_lines(tips_path, max_rows=None)  # you can limit if needed
+    tips = load_json_lines(tips_path, max_rows=5000)  # you can limit if needed
     df_tips = pd.DataFrame(tips)
     print("Tips shape:", df_tips.shape)
     print("Tip columns:", df_tips.columns.tolist())

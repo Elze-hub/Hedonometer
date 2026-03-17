@@ -29,7 +29,7 @@ def main():
 
     # 1. Load a subset of reviews (limit to keep it manageable; you can increase later)
     print("Loading reviews...")
-    reviews = load_json_lines(reviews_path, max_rows=50000)  # change 50000 if you want
+    reviews = load_json_lines(reviews_path, max_rows=5000)  # change 50000 if you want
     df_reviews = pd.DataFrame(reviews)
     print("Reviews shape:", df_reviews.shape)
 
