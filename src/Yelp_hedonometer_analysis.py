@@ -8,7 +8,7 @@ labmt = pd.read_csv('data/processed/hedonometer_data.csv')
 word_scores = dict(zip(labmt['word'], labmt['happiness_average']))
 
 
-# Compute happiness per review
+# Compute happiness average per review and per tip
 def compute_happiness(text):
     if not isinstance(text, str):
         return None
@@ -20,7 +20,7 @@ data['happiness_average'] = data['text'].apply(compute_happiness)
 
 print(data[['text', 'happiness_average']])
 
-# Plot
+# Plot hapiness averages of reviews and tips in a histogram
 import matplotlib.pyplot as plt
 figures_dir = 'figures'
 if not os.path.exists(figures_dir):
