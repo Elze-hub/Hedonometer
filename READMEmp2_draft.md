@@ -1,3 +1,12 @@
+# Hedonometer on Yelp: Are Tips Happier than Reviews? 
+
+## Project Overview
+We are using the labMT 1.0 hedonometer to compare the two different types of tones through Yelp tips and Yelp reviews. For this, we are answering if yelp tips are systemically happier, according to the hedonometer, than Yelp reviews. 
+
+## Analyzing Yelp reviews with hedonometer
+We applied hedonometer to texts entries in Yelp reviews (find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
+![Histogram](figures/yelp_reviews_happiness_distribution.png)
+
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
@@ -88,6 +97,4 @@ git commit -m "Added yelp reviews processed"
 git push
 ```
 
-## Analyzing Yelp reviews with hedonometer
-We applied hedonometer to texts entries in Yelp reviews (find it in src/Yelp_hedonometer_analysis). The results have us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
-![Histogram](figures/yelp_reviews_happiness_distribution.png)
+
