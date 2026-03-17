@@ -1,63 +1,53 @@
 import json
 import os
+import random
 
 import pandas as pd
 
 
-def load_json_lines(path, max_rows=None):
+def sample_json_lines(path, n_sample, random_state=42):
     """
-    Load a JSON-lines file (one JSON object per line) into a list of dicts.
-    Optionally limit to max_rows to keep file sizes manageable.
+    Randomly sample n_sample JSON objects from a JSON-lines file.
     """
-    records = []
+    random.seed(random_state)
     with open(path, "r", encoding="utf-8") as f:
-        for i, line in enumerate(f):
-            if max_rows is not None and i >= max_rows:
-                break
-            records.append(json.loads(line))
+        lines = f.readlines()
+    print(f"Total lines in {os.path.basename(path)}: {len(lines)}")
+
+    if n_sample > len(lines):
+        n_sample = len(lines)
+    sample_lines = random.sample(lines, n_sample)
+    records = [json.loads(line) for line in sample_lines]
     return records
 
 
 def main():
     tips_path = "data/raw/yelp-dataset/yelp_academic_dataset_tip.json"
-    business_path = "data/raw/yelp-dataset/yelp_academic_dataset_business.json"
 
-    
     if not os.path.exists(tips_path):
         raise FileNotFoundError(f"{tips_path} not found. Did you unzip the dataset?")
-    if not os.path.exists(business_path):
-        raise FileNotFoundError(f"{business_path} not found. Did you unzip the dataset?")
 
-    print("Loading tips...")
-    tips = load_json_lines(tips_path, max_rows=5000)  # you can limit if needed
+    # 1. Randomly sample 5000 tips
+    print("Sampling tips...")
+    tips = sample_json_lines(tips_path, n_sample=5000, random_state=42)
     df_tips = pd.DataFrame(tips)
-    print("Tips shape:", df_tips.shape)
+    print("Tips shape (raw sample):", df_tips.shape)
     print("Tip columns:", df_tips.columns.tolist())
 
-    print("Loading businesses...")
-    businesses = load_json_lines(business_path, max_rows=None)
-    df_business = pd.DataFrame(businesses)
-    print("Businesses shape:", df_business.shape)
-
+    # 2. Keep only columns you care about
     # Tip file usually has: user_id, business_id, text, date, compliment_count
     df_tips_small = df_tips[["user_id", "business_id", "text", "date"]]
 
-    df_business_small = df_business[
-        ["business_id", "name", "city", "state", "categories"]
-    ]
+    # 3. Basic cleaning: drop empty texts
+    df_tips_small = df_tips_small.dropna(subset=["text"])
+    df_tips_small = df_tips_small[df_tips_small["text"].str.strip() != ""]
 
-    # Merge tips with business metadata
-    df_merged = df_tips_small.merge(df_business_small, on="business_id", how="left")
+    print("Shape after cleaning:", df_tips_small.shape)
 
-    # Basic cleaning: drop empty texts
-    df_merged = df_merged.dropna(subset=["text"])
-    df_merged = df_merged[df_merged["text"].str.strip() != ""]
-
-    print("Merged tips shape after cleaning:", df_merged.shape)
-
+    # 4. Save to processed CSV
     os.makedirs("data/processed", exist_ok=True)
     out_path = "data/processed/yelp_tips_processed.csv"
-    df_merged.to_csv(out_path, index=False)
+    df_tips_small.to_csv(out_path, index=False)
 
     print(f"Saved processed tips to {out_path}")
 
