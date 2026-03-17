@@ -5,9 +5,9 @@ We are using the labMT 1.0 hedonometer to compare the two different types of ton
 
 The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
 
-## Analyzing Yelp reviews with hedonometer
-We applied hedonometer to texts entries in Yelp reviews (find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
-![Histogram](figures/yelp_reviews_happiness_distribution.png)
+## Analyzing Yelp reviews and tips with hedonometer
+We applied hedonometer to texts entries in Yelp reviews and tips(find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
+![Histogram](figures/yelp_reviews_tips_happiness_distribution.png)
 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
