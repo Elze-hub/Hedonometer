@@ -62,6 +62,19 @@ After extraction, data/raw/ should contain files such as:
     yelp_academic_dataset_review.json
     yelp_academic_dataset_business.json
 
+### Run Scripts 
+```
+process_yelp_from_kaggle.py
+```
+
+```
+process_yelp_tips.py
+```
+
+```
+yelp_lower_sample_count.py
+```
+
 ## How to Git Commit correctly 
 
 1. From the project root (example: C:\Users\yourname\Desktop\coding-humanities\Hedonometer)
