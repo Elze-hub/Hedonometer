@@ -27,8 +27,8 @@ if not os.path.exists(figures_dir):
     os.makedirs(figures_dir)
 plt.hist(data['happiness_average'].dropna(), bins=10, edgecolor='black')
 plt.xlabel('Happiness Score')
-plt.ylabel('Number of Reviews')
-plt.title('Distribution of Happiness in Yelp Reviews')
+plt.ylabel('Number of Reviews and Tips')
+plt.title('Distribution of Happiness in Yelp Reviews and Tips')
 plt.savefig(os.path.join(figures_dir, 'yelp_reviews_tips_happiness_distribution.png'))
 plt.show()
 
