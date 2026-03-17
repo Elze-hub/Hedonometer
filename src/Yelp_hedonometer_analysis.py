@@ -48,7 +48,7 @@ happiness_data.to_csv('data/processed/yelp_happiness_scores.csv', index=False)
 print(f"Saved {len(happiness_data)} rows")
 print(happiness_data.head())
 
-# Plot hapiness averages of reviews and tips in a histogram
+# Plot hapiness averages and standard deviations of reviews and tips in a histogram
 import matplotlib.pyplot as plt
 figures_dir = 'figures'
 if not os.path.exists(figures_dir):
@@ -58,6 +58,25 @@ plt.xlabel('Happiness Score')
 plt.ylabel('Number of Reviews and Tips')
 plt.title('Distribution of Happiness in Yelp Reviews and Tips')
 plt.savefig(os.path.join(figures_dir, 'yelp_reviews_tips_happiness_distribution.png'))
+plt.show()
+
+reviews = data[data['kind'] == 'review']['happiness_average'].dropna()
+tips = data[data['kind'] == 'tip']['happiness_average'].dropna()
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+ax1.hist(reviews, bins=10, edgecolor='black', color='steelblue')
+ax1.set_title(f'Reviews (std: {reviews.std():.2f})')
+ax1.set_xlabel('Happiness Score')
+ax1.set_ylabel('Count')
+
+ax2.hist(tips, bins=10, edgecolor='black', color='salmon')
+ax2.set_title(f'Tips (std: {tips.std():.2f})')
+ax2.set_xlabel('Happiness Score')
+
+plt.suptitle('Happiness Distribution: Reviews vs Tips')
+plt.tight_layout()
+plt.savefig(os.path.join(figures_dir, 'yelp_happiness_distribution.png'))
 plt.show()
 
 
