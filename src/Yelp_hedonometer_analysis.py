@@ -20,6 +20,34 @@ data['happiness_average'] = data['text'].apply(compute_happiness)
 
 print(data[['text', 'happiness_average']])
 
+# Creating a new dataset of happiness average distribution among tips and reviews, removing unnecessary columns from previous dataset
+happiness_data = data[['text', 'happiness_average']].dropna(subset=['happiness_average'])
+
+# Checking if 'kind' column exits
+print(data['kind'].value_counts())
+
+# Saving the 'kind' alongside other columns
+happiness_data = data[['kind', 'text', 'happiness_average']].dropna(subset=['happiness_average'])
+happiness_data.to_csv('data/processed/yelp_happiness_scores.csv', index=False)
+
+# Compute standard deviation per kind (review or tip)
+std_happiness = data['happiness_average'].std()
+
+# Add it as a new column to the dataset
+data['happiness_std'] = data['happiness_average'].std()
+
+# Save with it included
+happiness_data = data[['kind', 'text', 'happiness_average', 'happiness_std']].dropna(subset=['happiness_average'])
+happiness_data.to_csv('data/processed/yelp_happiness_scores.csv', index=False)
+
+print(happiness_data.head())
+
+# Saving new dataset to a new CSV
+happiness_data.to_csv('data/processed/yelp_happiness_scores.csv', index=False)
+
+print(f"Saved {len(happiness_data)} rows")
+print(happiness_data.head())
+
 # Plot hapiness averages of reviews and tips in a histogram
 import matplotlib.pyplot as plt
 figures_dir = 'figures'
