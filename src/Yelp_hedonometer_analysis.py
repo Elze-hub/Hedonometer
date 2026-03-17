@@ -76,7 +76,7 @@ ax2.set_xlabel('Happiness Score')
 
 plt.suptitle('Happiness Distribution: Reviews vs Tips')
 plt.tight_layout()
-plt.savefig(os.path.join(figures_dir, 'yelp_happiness_distribution.png'))
+plt.savefig(os.path.join(figures_dir, '1E_yelp_happiness_distribution.png'))
 plt.show()
 
 
