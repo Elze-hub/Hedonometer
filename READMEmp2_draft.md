@@ -16,6 +16,91 @@ The original data count is 6,990,280 total for reviews and 908,915 total for tip
 We applied hedonometer to texts entries in Yelp reviews and tips(find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
 ![Histogram](figures/yelp_reviews_tips_happiness_distribution.png)
 
+### Bargraph 
+
+![Bargraph](figures/yelp_mean_happiness_tips_vs_reviews.png)
+
+### Analyzing Yelp reviews and tips: words
+
+For tips and for reviews separately, which hedonometer words are repeated most often, and how happy/sad are they?
+
+#### Reviews
+Top positive (reviews):
+| word  | count  | happiness| 
+| ------------- | ------------- | ------------- |
+|   love   |    756    |    8.42| 
+|   happy  |    308  |   8.30    |
+|   excellent   |343    | 8.18|
+|   win     |   21  | 8.12|
+|   smile   |   51  |  8.10|
+|   won     |   202 |   8.10|
+|   enjoyed |   240 |   8.02|
+|   healthy |   52  |   8.02|
+|   music   |   144  |   8.02|
+|   weekend |   109  |   8.00|
+|   rich    |     36    |       7.98|
+|   loved   |    252    |       7.96|
+|   loves   |     29    |       7.96|
+|   free    |    250    |       7.96|
+|   christmas   |     39|       7.96|
+
+Top negative (reviews):
+| word  | count  | happiness| 
+| ------------- | ------------- | ------------- |
+|die|     54|       1.74|
+|dead|     22|       2.00|
+|sick|     20 |      2.02|
+|pain|     62|       2.10|
+|worst|    127|       2.10|
+|horrible|    131|       2.24|
+|disappointed|    213|       2.26|
+|sadly|     24|       2.28|
+|poor|    102|       2.32|
+|hate|     42|       2.34|
+|sad|     33|       2.38|
+|negative|     47|       2.42|
+|shot|     37|       2.50|
+|shit|     20|       2.50|
+|ruined|     20|       2.54|
+
+#### Tips
+Top positive (tips):
+| word  | count  | happiness| 
+| ------------- | ------------- | ------------- |
+|happiness|    145|       8.44
+|love|  48097|       8.42|
+|happy|  13589|       8.30|
+|laughed|     56|       8.26|
+|laugh|    130|       8.22|
+|laughing|     62|       8.20|
+|excellent|  21647|       8.18|
+|laughs|     56|       8.18|
+|joy|    219|       8.16|
+|successful|     54|       8.16|
+|win|   1078|       8.12|
+|won|   5137|       8.10|
+|smile|    799|       8.10|
+|rainbow|    146|       8.10|
+|pleasure|    363|       8.08|
+
+Top negative (tips):
+| word  | count  | happiness| 
+| ------------- | ------------- | ------------- |
+|murder|     34|       1.48|
+|death|    176|       1.54|
+|cancer|    102|       1.54|
+|kill|    259|       1.56|
+|killed|    103|       1.56|
+|died|    126|       1.56|
+|torture|     33|       1.58|
+|arrested|     25|       1.64|
+|killing|    107|       1.70|
+|die|   2815|       1.74|
+|jail|     26|       1.76|
+|kills|     54|       1.78|
+|war|    130|       1.80|
+|cry|     91|       1.84|
+|failed|    149|       1.84|
 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
