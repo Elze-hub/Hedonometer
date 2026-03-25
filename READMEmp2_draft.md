@@ -6,7 +6,7 @@ We are using the labMT 1.0 hedonometer to compare the two different types of ton
 The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
 
 
-## Data (name for now)
+
 
 
 ## Quantative Analysis (name for now)
@@ -17,16 +17,22 @@ We applied hedonometer to texts entries in Yelp reviews and tips(find it in src/
 ![Histogram](figures/yelp_reviews_tips_happiness_distribution.png)
 
 ### Bargraph 
+We randomly sampled 5,000 Yelp reviews and Yelp tips and created a hedonometer happiness score by using the labMT 1.0 word list. The results show that tips are happier on average than reviews, by having a score of 5.80 and reviews having 5.54. The difference is 0.26 points, with the whole scale being 1-9. This shows quantitative evidence that answers our question if Yelp tips are systematically happier than Yelp reviews, through 5,000 randomly sampled reviews and tips. 
 
 ![Bargraph](figures/yelp_mean_happiness_tips_vs_reviews.png)
 
-### Analyzing Yelp reviews and tips: words
+### Analyzing Yelp reviews and tips: Words
 
-For tips and for reviews separately, which hedonometer words are repeated most often, and how happy/sad are they?
+
+We now know that tips have a higher average happiness score than reviews. To better understand where this difference comes from, we examine which hedonometer words are repeated most often between tips and reviews, and how positive or negative these words are. 
+
+For each kind of text, we used the labMT happiness scores and listed the 15 most frequent positive words and the 15 most negative words. As this list is only taking 15 for each kind, this analysis won't be saying if tips use more positive words overall, but rather will help us better understand which specific positive and negative words drive the higher happiness scores for tips (as seen in the bargraph), and how often they are repeated. 
+
+
 
 #### Reviews
 Top positive (reviews):
-| word  | count  | happiness| 
+| word  | count  | happiness|                       
 | ------------- | ------------- | ------------- |
 |   love   |    756    |    8.42| 
 |   happy  |    308  |   8.30    |
@@ -43,6 +49,8 @@ Top positive (reviews):
 |   loves   |     29    |       7.96|
 |   free    |    250    |       7.96|
 |   christmas   |     39|       7.96|
+
+
 
 Top negative (reviews):
 | word  | count  | happiness| 
@@ -62,6 +70,7 @@ Top negative (reviews):
 |shot|     37|       2.50|
 |shit|     20|       2.50|
 |ruined|     20|       2.54|
+
 
 #### Tips
 Top positive (tips):
