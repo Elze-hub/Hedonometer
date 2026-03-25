@@ -83,8 +83,9 @@ For each of the 15 target words, we computed the average happiness of all collec
 
 As seen from above, some highly positive words, such as love (8.42), happy (8.30) and excellent (8.18) occur in contexts whose average neighbor happiness is substantially lower (typically around 5.30-5.90). This pattern applies to both tips and review type items, indicating that strongly positive lexical items are embedded in more moderately positive or neutral linguistic surroundings. Scatterplots (see figures below) confirm that, while there is a generally positive association, neighbor scores cluster in a narrower, mid-positive band, suggesting that highly positive words function as local affective peaks within otherwise less extreme contexts.
 
-![Tip Positive Scatterplot](figures/tip_pos_scatter.png)
+
 ![Review Positive Scatterplot](figures/rev_pos_scatter.png)
+![Tip Positive Scatterplot](figures/tip_pos_scatter.png)
 
 For unhappy words, we applied the same procedure to the 15 lowest-scoring words in both reviews and tips.
 
@@ -125,6 +126,15 @@ For unhappy words, we applied the same procedure to the 15 lowest-scoring words 
 |13.| waiting | 3.68 | 5.29 |
 |14.| wait | 3.74 | 5.12 |
 |15.| 
+
+Similarly to their positive counterparts, the strongly negative words such as die (1.74; 5.09), dead (2.00; 5.46) and worst (2.10; 5.37) appear in contexts whose average neighbor happiness hovers around 5.20-5.60. This remains similar in both reviews and tips and indicates that even strongly negative lexical items are embedded in contexts that are not uniformly negative, but instead mix evaluative language with more neutral descriptive content.
+
+![Review Negative Scatterplot](figures/rev_neg_scatter.png)
+![Tips Negative Scatterplot](figures/tip_neg_scatter.png)
+
+Taken together, these results illustrate a characteristic asymmetry between word-level valence and local contextual valence: both highly positive and highly negative words tend to appear in contexts whose average happiness is closer to the center of the scale.
+
+By comparing reviews and tips seperately, we can also observe genre-specific tendencies: tips feature more concise, directive language but still show the same pattern of affective spikes (words such as great, fantastic, wonderful, worst, terrible) embedded in relatively moderate contexts.
 
 ## Quantitative Analysis (name for now)
 
