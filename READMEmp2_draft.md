@@ -44,7 +44,7 @@ For each of the 15 target words, we computed the average happiness of all collec
 
 
 
-## Quantative Analysis (name for now)
+## Quantitative Analysis (name for now)
 
 
 ### Analyzing Yelp reviews and tips with hedonometer
@@ -136,6 +136,21 @@ Top negative (tips):
 |war|    130|       1.80|
 |cry|     91|       1.84|
 |failed|    149|       1.84|
+
+
+### Star Rating vs. Happiness Score
+
+To explore whether higher star ratings correspond to happier text, we plotted each review’s star rating against its hedonometer happiness score. The scatter plot shows a clear positive trend: reviews with more stars tend to have higher happiness scores.
+
+![Star Rating vs Happiness Score](figures/stars_vs_happiness.png)
+
+The correlation coefficient is **r = 0.46**, with a p-value < 0.001, indicating a statistically significant relationship. This suggests that people’s numerical ratings align well with the emotional tone of their written reviews.
+
+To assess the stability of this correlation, we performed bootstrap resampling (1000 iterations). The 95% confidence interval for the correlation coefficient is **[0.438, 0.479]**, confirming that the positive relationship between star rating and happiness score is robust to sampling variation.
+
+![Bootstrap distribution of correlation](figures/bootstrap_r_distribution.png)
+
+
 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
