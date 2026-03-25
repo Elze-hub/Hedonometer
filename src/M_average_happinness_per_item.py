@@ -40,6 +40,21 @@ print(data.groupby("kind")["happiness"].describe())
 # Save data
 data.to_csv("data/processed/happiness_per_item.csv", index=False)
 
+# Create a boxplot of happiness scores for reviews and tips and save it
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8, 6))
+data.boxplot(column="happiness", by="kind")
+plt.title("Happiness scores for Yelp reviews and tips")
+plt.suptitle("")
+plt.xlabel("Kind")
+plt.ylabel("Happiness score")
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/happiness_per_item_boxplot.png", dpi=300)
+
+# Calculate average length of Yelp tips and reviews in words
+data["length"] = data["text"].apply(lambda x: len(tokenize(x)))
+print(data.groupby("kind")["length"].describe())
 
 
 
