@@ -44,6 +44,9 @@ For each of the 15 target words, we computed the average happiness of all collec
 
 ### Top 15 happiest words (Yelp reviews) with their neighbour average.
 
+![Barchart](figures/rev_pos_bar.png)
+![Heatmap](figures/rev_pos_heatmap.png)
+
 | # | Word | Happiness Average | Neighbor Happiness Average |
 |---|------|-------------------|----------------------------|
 |1.| love | 8.42 | 5.67 |
@@ -63,6 +66,10 @@ For each of the 15 target words, we computed the average happiness of all collec
 |15.| christmas | 7.96 | 5.69 |
 
 ### Top 15 happiest words (Yelp tips) with their neighbour average.
+
+![Barchart](figures/tip_pos_bar.png)
+![Heatmap](figures/tip_pos_heatmap.png)
+
 |#| Word | Happiness Average | Neighbor Happiness Average |
 |-|------|-------------------|----------------------------|
 |1.| love | 8.42 | 5.55 |
@@ -89,7 +96,12 @@ As seen from above, some highly positive words, such as love (8.42), happy (8.30
 
 For unhappy words, we applied the same procedure to the 15 lowest-scoring words in both reviews and tips.
 
+
 ### Top 15 unhappiest words (Yelp reviews) with their neighbour happiness average.
+
+![Barchart](figures/rev_neg_bar.png)
+![Heatmap](figures/rev_neg_heatmap.png)
+
 |#| Word | Happiness Average | Neighbor Happiness Average |
 |-|------|-------------------|----------------------------|
 |1.| die | 1.74 | 5.09 |
@@ -109,6 +121,10 @@ For unhappy words, we applied the same procedure to the 15 lowest-scoring words 
 |15.| ruined | 2.54 | 5.44 |
 
 ### Top 15 unhappiest words (Yelp tips) with their neighbor happiness average.
+
+![Barchart](figures/tip_neg_bar.png)
+![Heatmap](figures/tip_neg_heatmap.png)
+
 |#| Word | Happiness Average | Neighbor Happiness Average |
 |-|------|-------------------|----------------------------|
 |1.| worst | 2.10 | 5.83 |
