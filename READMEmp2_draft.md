@@ -155,9 +155,13 @@ By comparing reviews and tips seperately, we can also observe genre-specific ten
 ## Quantitative Analysis (name for now)
 
 
-### Analyzing Yelp reviews and tips with hedonometer
-We applied hedonometer to texts entries in Yelp reviews and tips(find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics in their comments.
+### Analyzing Yelp reviews and tips with application of hedonometer
+We applied hedonometer to texts entries in Yelp reviews and tips(find it in src/Yelp_hedonometer_analysis). The results gave us a histogram, which shows the distribution of 'happiness' rankings among text entries in the app. As it is displayed in histogram, all of the rankings are equally distributed among the middle rankings, which means that people show neither very unhappy, nor very happy characteristics.
 ![Histogram](figures/yelp_reviews_tips_happiness_distribution.png)
+
+### Comparing results of Yelp reviews and tips with application of hedonometer
+Both charts show normal distribution, which means that people's ratings are mostly neither very positive, not negative. However, tips show a distribution that has more ratings that are more higher than medium in happiness distribution.
+![Histogram](figures/1E_yelp_happiness_distribution.png)
 
 ### Bargraph 
 We randomly sampled 5,000 Yelp reviews and Yelp tips and created a hedonometer happiness score by using the labMT 1.0 word list. The results show that tips are happier on average than reviews, by having a score of 5.80 and reviews having 5.54. The difference is 0.26 points, with the whole scale being 1-9. This shows quantitative evidence that answers our question if Yelp tips are systematically happier than Yelp reviews, through 5,000 randomly sampled reviews and tips. 
