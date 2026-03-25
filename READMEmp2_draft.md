@@ -3,10 +3,45 @@
 ## Project Overview
 We are using the labMT 1.0 hedonometer to compare the two different types of tones through Yelp tips and Yelp reviews. For this, we are answering if yelp tips are systemically happier, according to the hedonometer, than Yelp reviews. 
 
-The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
-
+The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  Both corpora were pre-processed to remove noise such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
 ## Data (name for now)
+
+To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 30514, tips 7212), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
+
+!!! Insert here calculations/tables on word level !!!
+
+Next to calculating sentiment at the word level, we computed average happiness per review or tip, treating each item as a meaningful unit of user expression. As mentioned above, all text was tokenized into individual words and matched to their corresponding happiness scores. The item's happiness score was calculated as the mean of all matched word scores.
+
+![Average Happiness per kind](figures/happiness_per_item_boxplot.png)
+
+Yelp tips exhibited higher average happiness and greater variance.
+
+Yelp reviews showed lower average happiness and a more constrained distribution.
+
+| Kind | Mean | SD | 50% | 75% | max |
+|------|------|----|-----|-----|-----|
+| Review | 5.579043 | 0.215035 | 5.559418 | 5.690538 | 7.207273 |
+| Tip | 5.836699 | 0.630054 | 5.783667 | 6.160000 | 8.440000 |
+
+The mean length of a Yelp tip was 10.9612 words per item (SD = 10.4601), the mean length of a Yelp review was 106.2226 words per item (SD = 104.2296). 
+
+This aligns with genre expectations - tips are short, often informal and used to highlight positive experiences, whereas reviews tend to be longer, are more narrative and more likely to contain mixed or critical evaluations.
+
+Our primary reserach question asks whether Yelp tips are happier than reviews. At first, this seems like a question that can be answered simply by comparing average happiness scores per item - and indeed, the results show that tips are on average more positive.
+
+However, sentiment in natural language is rarely uniform. A text can contain highly positive words embedded in neutral or even negative contexts, and vice versa. This is where semantic prosody becomes essential. Semantic prosody examines how the emotional tone of a word is shaped by the words that surround it. By studying the immediate neighbours of the happiest words in Yelp, we gain insight into how sentiment is actually used, not just how it appears in isolation. 
+
+The following segment will explore how tips and reviews use positive words differently. Tips might contain more positive words overall, however, they might use them in a straightforward, uniform contexts ("I love this place"), while reviews might embed the same words in contrastive or mixed context ("Loved the food, but the service was slow). 
+
+## Semantic Prosody
+
+We first computed word frequencies over the combined Yelp reviews and tips corpus using a tokenizer restricted to alphabetic tokens in lowercase. These frequencies were then joined with the Hedonometer (labMT) lexicon. From this intersection we selected the top 15 happiest words, that appear in Yelp corpus and occur at least 20 times, ensuring sufficient contextual evidence for each target word.
+
+We then extracted its immediate left and right neighbours for every occurance of each target word in the top 15 happiest words. If a neighbour existed and was present in the Hedonometer lexicon, we mapped it to its happiness score. This yielded a list of happiness scores representing the emotional tone of its local context.
+
+For each of the 15 target words, we computed the average happiness of all collected neighbours. This produced a single contextual sentiment value per word, which could be directly compared to the word's own happiness score.
+
 
 
 ## Quantative Analysis (name for now)
