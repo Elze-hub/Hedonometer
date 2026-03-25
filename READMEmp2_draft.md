@@ -3,13 +3,156 @@
 ## Project Overview
 We are using the labMT 1.0 hedonometer to compare the two different types of tones through Yelp tips and Yelp reviews. For this, we are answering if yelp tips are systemically happier, according to the hedonometer, than Yelp reviews. 
 
-The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
+The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  Both corpora were pre-processed to remove noise such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
 
 
+To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 11229, tips 2925), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
+
+!!! Insert here calculations/tables on word level !!!
+
+Next to calculating sentiment at the word level, we computed average happiness per review or tip, treating each item as a meaningful unit of user expression. As mentioned above, all text was tokenized into individual words and matched to their corresponding happiness scores. The item's happiness score was calculated as the mean of all matched word scores.
+
+![Average Happiness per kind](figures/happiness_per_item_boxplot.png)
+
+Yelp tips exhibited higher average happiness and greater variance.
+
+Yelp reviews showed lower average happiness and a more constrained distribution.
+
+| Kind | Mean | SD | 50% | 75% | max |
+|------|------|----|-----|-----|-----|
+| Review | 5.579043 | 0.215035 | 5.559418 | 5.690538 | 7.207273 |
+| Tip | 5.836699 | 0.630054 | 5.783667 | 6.160000 | 8.440000 |
+
+The mean length of a Yelp tip was 10.9612 words per item (SD = 10.4601), the mean length of a Yelp review was 106.2226 words per item (SD = 104.2296). 
+
+This aligns with genre expectations - tips are short, often informal and used to highlight positive experiences, whereas reviews tend to be longer, are more narrative and more likely to contain mixed or critical evaluations.
+
+Our primary research question asks whether Yelp tips are happier than reviews. At first, this seems like a question that can be answered simply by comparing average happiness scores per item - and indeed, the results show that tips are on average more positive.
+
+However, sentiment in natural language is rarely uniform. A text can contain highly positive words embedded in neutral or even negative contexts, and vice versa. This is where semantic prosody becomes essential. Semantic prosody examines how the emotional tone of a word is shaped by the words that surround it. By studying the immediate neighbours of the happiest words in Yelp, we gain insight into how sentiment is actually used, not just how it appears in isolation. 
+
+The following segment will explore how tips and reviews use positive words differently. Tips might contain more positive words overall, however, they might use them in a straightforward, uniform contexts ("I love this place"), while reviews might embed the same words in contrastive or mixed context ("Loved the food, but the service was slow"). 
+
+## Semantic Prosody
+
+We first computed word frequencies over the combined Yelp reviews and tips corpus using a tokenizer restricted to alphabetic tokens in lowercase. These frequencies were then joined with the Hedonometer (labMT) lexicon. From this intersection we selected the top 15 happiest words, that appear in Yelp corpus and occur at least 20 times, ensuring sufficient contextual evidence for each target word.
+
+We then extracted its immediate left and right neighbours for every occurance of each target word in the top 15 happiest words. If a neighbour existed and was present in the Hedonometer lexicon, we mapped it to its happiness score. This yielded a list of happiness scores representing the emotional tone of its local context.
+
+For each of the 15 target words, we computed the average happiness of all collected neighbours. This produced a single contextual sentiment value per word, which could be directly compared to the word's own happiness score.
+
+### Top 15 happiest words (Yelp reviews) with their neighbour average.
+
+![Barchart](figures/rev_pos_bar.png)
+![Heatmap](figures/rev_pos_heatmap.png)
+
+| # | Word | Happiness Average | Neighbor Happiness Average |
+|---|------|-------------------|----------------------------|
+|1.| love | 8.42 | 5.67 |
+|2.| happy | 8.30 | 5.45 |
+|3.| excellent | 8.18 | 5.49 |
+|4.| win | 8.12 | 6.01 |
+|5.| smile | 8.10 | 5.37 |
+|6.| won | 8.10 | 5.34 |
+|7.| enjoyed | 8.02 | 5.67 |
+|8.| healthy | 8.02 | 5.93 |
+|9.| music | 8.02 | 5.70 |
+|10.| weekend | 8.00 | 5.48 |
+|11.| rich | 7.98 | 5.50 |
+|12.| loved | 7.96 | 5.64 |
+|13.| loves | 7.96 | 6.00 |
+|14.| free | 7.96 | 5.56 |
+|15.| christmas | 7.96 | 5.69 |
+
+### Top 15 happiest words (Yelp tips) with their neighbour average.
+
+![Barchart](figures/tip_pos_bar.png)
+![Heatmap](figures/tip_pos_heatmap.png)
+
+|#| Word | Happiness Average | Neighbor Happiness Average |
+|-|------|-------------------|----------------------------|
+|1.| love | 8.42 | 5.55 |
+|2.| happy | 8.30 | 5.77 |
+|3.| excellent | 8.18 | 5.89 |
+|4.| won | 8.10 | 5.39 |
+|5.| music | 8.02 | 5.76 |
+|6.| free | 7.96 | 5.73 |
+|7.| fun | 7.96 | 5.80 |
+|8.| loved | 7.96 | 5.66 |
+|9.| delicious | 7.92 | 5.86 |
+|10.| beautiful | 7.92 | 5.87 |
+|11.| friends | 7.92 | 5.84 |
+|12.| great | 7.88 | 5.98 |
+|13.| chocolate | 7.86 | 5.54 |
+|14.| fantastic | 7.78 | 5.72 |
+|15.| wonderful | 7.76 | 5.92 |
+
+As seen from above, some highly positive words, such as love (8.42), happy (8.30) and excellent (8.18) occur in contexts whose average neighbor happiness is substantially lower (typically around 5.30-5.90). This pattern applies to both tips and review type items, indicating that strongly positive lexical items are embedded in more moderately positive or neutral linguistic surroundings. Scatterplots (see figures below) confirm that, while there is a generally positive association, neighbor scores cluster in a narrower, mid-positive band, suggesting that highly positive words function as local affective peaks within otherwise less extreme contexts.
 
 
-## Quantative Analysis (name for now)
+![Review Positive Scatterplot](figures/rev_pos_scatter.png)
+![Tip Positive Scatterplot](figures/tip_pos_scatter.png)
+
+For unhappy words, we applied the same procedure to the 15 lowest-scoring words in both reviews and tips.
+
+
+### Top 15 unhappiest words (Yelp reviews) with their neighbour happiness average.
+
+![Barchart](figures/rev_neg_bar.png)
+![Heatmap](figures/rev_neg_heatmap.png)
+
+|#| Word | Happiness Average | Neighbor Happiness Average |
+|-|------|-------------------|----------------------------|
+|1.| die | 1.74 | 5.09 |
+|2.| dead | 2.00 | 5.46 |
+|3.| sick | 2.02 | 5.62 |
+|4.| pain | 2.10 | 5.23 |
+|5.| worst | 2.10 | 5.37 |
+|6.| horrible | 2.24 | 5.44 |
+|7.| disappointed | 2.26 | 5.33 |
+|8.| sadly | 2.28 | 5.22 |
+|9.| poor | 2.32 | 5.48 |
+|10.| hate | 2.34 | 5.62 |
+|11.| sad | 2.38 | 5.13 |
+|12.| negative | 2.42 | 5.45 |
+|13.| shot | 2.50 | 5.38 |
+|14.| shit | 2.50 | 5.29 |
+|15.| ruined | 2.54 | 5.44 |
+
+### Top 15 unhappiest words (Yelp tips) with their neighbor happiness average.
+
+![Barchart](figures/tip_neg_bar.png)
+![Heatmap](figures/tip_neg_heatmap.png)
+
+|#| Word | Happiness Average | Neighbor Happiness Average |
+|-|------|-------------------|----------------------------|
+|1.| worst | 2.10 | 5.83 |
+|2.| horrible | 2.24 | 5.50 |
+|3.| disappointed | 2.26 | 5.48 |
+|4.| rude | 2.62 | 5.49 |
+|5.| terrible | 2.84 | 5.89 |
+|6.| wrong | 3.14 | 5.37 |
+|7.| avoid | 3.14 | 5.07 |
+|8.| never | 3.34 | 5.39 |
+|9.| no | 3.48 | 5.43 |
+|10.| expensive | 3.54 | 5.30 |
+|11.| closed | 3.66 | 5.26 |
+|12.| down | 3.66 | 5.61|
+|13.| waiting | 3.68 | 5.29 |
+|14.| wait | 3.74 | 5.12 |
+|15.| 
+
+Similarly to their positive counterparts, the strongly negative words such as die (1.74; 5.09), dead (2.00; 5.46) and worst (2.10; 5.37) appear in contexts whose average neighbor happiness hovers around 5.20-5.60. This remains similar in both reviews and tips and indicates that even strongly negative lexical items are embedded in contexts that are not uniformly negative, but instead mix evaluative language with more neutral descriptive content.
+
+![Review Negative Scatterplot](figures/rev_neg_scatter.png)
+![Tips Negative Scatterplot](figures/tip_neg_scatter.png)
+
+Taken together, these results illustrate a characteristic asymmetry between word-level valence and local contextual valence: both highly positive and highly negative words tend to appear in contexts whose average happiness is closer to the center of the scale.
+
+By comparing reviews and tips seperately, we can also observe genre-specific tendencies: tips feature more concise, directive language but still show the same pattern of affective spikes (words such as great, fantastic, wonderful, worst, terrible) embedded in relatively moderate contexts.
+
+## Quantitative Analysis (name for now)
 
 
 ### Analyzing Yelp reviews and tips with hedonometer
@@ -110,6 +253,21 @@ Top negative (tips):
 |war|    130|       1.80|
 |cry|     91|       1.84|
 |failed|    149|       1.84|
+
+
+### Star Rating vs. Happiness Score
+
+To explore whether higher star ratings correspond to happier text, we plotted each review’s star rating against its hedonometer happiness score. The scatter plot shows a clear positive trend: reviews with more stars tend to have higher happiness scores.
+
+![Star Rating vs Happiness Score](figures/stars_vs_happiness.png)
+
+The correlation coefficient is **r = 0.46**, with a p-value < 0.001, indicating a statistically significant relationship. This suggests that people’s numerical ratings align well with the emotional tone of their written reviews.
+
+To assess the stability of this correlation, we performed bootstrap resampling (1000 iterations). The 95% confidence interval for the correlation coefficient is **[0.438, 0.479]**, confirming that the positive relationship between star rating and happiness score is robust to sampling variation.
+
+![Bootstrap distribution of correlation](figures/bootstrap_r_distribution.png)
+
+
 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
