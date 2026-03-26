@@ -353,7 +353,7 @@ When looking at reviews and tips through repeating words, a noticeable thing is 
 Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps, with over 11,000 out-of-vocabulary words in reviews alone, mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
 
 ## AI Usage 
-Scripts: 
+Scripts: Yelp_hedonometer_analysis.py - Claude.ai was used to generate the histogram and help with solving errors. I checked everything after and asked for explanations, if I didn't understand something.
 
 2A_yelp_word_repeats.py - UvA AI wrote the code, I checked to make sure the destination, inputs, and pulls were all the correct destination and that the output was correct. 
 
