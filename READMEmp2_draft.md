@@ -7,6 +7,11 @@ The original data count is 6,990,280 total for reviews and 908,915 total for tip
 
 ## Background 
 
+The labMT 1.0 is a list of around 10,000 high-frequency English words that came from Mechanical Turk workers, who rated how words "felt" on a 1-9 scale. The happiness score is from 1 (very negative) to 9 (very positive). 
+
+The chosen words were taken from the top 5,000 most frequent words from four corpora: Twitter, Google Books, New York Times, and Song lyrics. Each of these categories have different styles of words to create a more diverse word list (formal, informal, general, pop culture). 
+
+With each word, labMT provides a happiness_average and a happiness_standard_deviation. 
 
 
 
@@ -16,7 +21,9 @@ The original data count is 6,990,280 total for reviews and 908,915 total for tip
 
 
 
-## Yelp (name for now)
+
+
+## Data & Methods
 
 To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 11229, tips 2925), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
 
@@ -163,14 +170,14 @@ Taken together, these results illustrate a characteristic asymmetry between word
 
 By comparing reviews and tips seperately, we can also observe genre-specific tendencies: tips feature more concise, directive language but still show the same pattern of affective spikes (words such as great, fantastic, wonderful, worst, terrible) embedded in relatively moderate contexts.
 
-## Quantitative Analysis (name for now)
+## Quantitative Analysis: Results
 
 ### Bargraph 
 We randomly sampled 5,000 Yelp reviews and Yelp tips and created a hedonometer happiness score by using the labMT 1.0 word list. The results show that tips are happier on average than reviews, by having a score of 5.80 and reviews having 5.54. The difference is 0.26 points, with the whole scale being 1-9. This shows quantitative evidence that answers our question if Yelp tips are systematically happier than Yelp reviews, through 5,000 randomly sampled reviews and tips. 
 
 ![Bargraph](figures/yelp_mean_happiness_tips_vs_reviews.png)
 
-### Analyzing Yelp reviews and tips: Words
+### Analyzing Yelp reviews and tips: words
 
 
 We now know that tips have a higher average happiness score than reviews. To better understand where this difference comes from, we examine which hedonometer words are repeated most often between tips and reviews, and how positive or negative these words are. 
@@ -273,7 +280,7 @@ To assess the stability of this correlation, we performed bootstrap resampling (
 
 ![Bootstrap distribution of correlation](figures/bootstrap_r_distribution.png)
 
-
+## Limitation & Reflection
 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
