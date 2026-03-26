@@ -329,12 +329,12 @@ When looking at reviews and tips through repeating words, a noticeable thing is 
 
 Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps, with over 11,000 out-of-vocabulary words in reviews alone, mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
 
-### AI Usage 
+## AI Usage 
 Scripts: 
 
 2A_yelp_word_repeats.py - UvA AI wrote the code, I checked to make sure the destination, inputs, and pulls were all the correct destination and that the output was correct. 
 
-### Members Contribution
+## Members Contribution
 
 Asena: 
 
@@ -343,7 +343,8 @@ Meeli:
 Elze: 
 
 Bijia: 
-# How to download the Yelp Dataset
+
+## How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
 ### Configure Kaggle credentials (one‑time, per machine)
