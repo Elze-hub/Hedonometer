@@ -5,7 +5,18 @@ We are using the labMT 1.0 hedonometer to compare the two different types of ton
 
 The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  Both corpora were pre-processed to remove noise such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
+## Background 
 
+
+
+
+
+
+
+
+
+
+## Yelp (name for now)
 
 To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 11229, tips 2925), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
 
@@ -169,7 +180,7 @@ We randomly sampled 5,000 Yelp reviews and Yelp tips and created a hedonometer h
 
 We now know that tips have a higher average happiness score than reviews. To better understand where this difference comes from, we examine which hedonometer words are repeated most often between tips and reviews, and how positive or negative these words are. 
 
-For each kind of text, we used the labMT happiness scores and listed the 15 most frequent positive words and the 15 most negative words. As this list is only taking 15 for each kind, this analysis won't be saying if tips use more positive words overall, but rather will help us better understand which specific positive and negative words drive the higher happiness scores for tips (as seen in the bargraph), and how often they are repeated. 
+For each kind of text, we used the labMT happiness scores and listed the 15 most frequent positive words and the 15 most negative words. Because we always show 15 words per category, this analysis does not tell us whether tips use more positive words overall than reviews. Rather, it will help us better understand which specific positive and negative words drive the higher happiness scores for tips (as seen in the bargraph), and how often they are repeated. 
 
 
 
