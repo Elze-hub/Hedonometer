@@ -200,7 +200,7 @@ For each kind of text, we used the labMT happiness scores and listed the 15 most
 
 
 #### Reviews
-Top positive (reviews):
+##### Top positive (reviews):
 | word  | count  | happiness|                       
 | ------------- | ------------- | ------------- |
 |   love   |    756    |    8.42| 
@@ -219,9 +219,9 @@ Top positive (reviews):
 |   free    |    250    |       7.96|
 |   christmas   |     39|       7.96|
 
+Yelp reviews use strong positive words [love, happy, excellent] with these scores all between 8.18-8.42, with 'love' having the highest score of 8.42. There are multiple 'love' words such as 'love', 'loved' and 'loves' (as well as 'excellent', which is not part of the 'love' family, but is still a word that expresses emotion). This shows that people share their experience through these emotional terms. There are other words that express the experience such as 'music', 'weekend' and 'healthy'. These words are in the lower amount of counts from 52-250. These are not large amounts (especially compared to 'love' 'happy' and 'excellent' which all have 300-756 mentions) but can came in handy when comparing this with the tips. There are 10 words that reached a score of 8.00 or higher, and 5 words that had lower than 8.00. 
 
-
-Top negative (reviews):
+##### Top negative (reviews):
 | word  | count  | happiness| 
 | ------------- | ------------- | ------------- |
 |die|     54|       1.74|
@@ -240,9 +240,12 @@ Top negative (reviews):
 |shit|     20|       2.50|
 |ruined|     20|       2.54|
 
+The negative Yelp reviews considerably strong negative words; worst, die, cancer, horrible. With the lowest happiness_average score being 1.74 for the word 'die'. Just like the positive reviews, negative reviews used words to express their emotions such as 'sad' (2.38), 'hate'(2.34) and 'disappointed' (2.26) and words to describe their experience such as 'worst' (2.10), 'horrible' (2.24) and ruined (2.54). These words show us that the negative reviews were more than just light complaints, but intense negative reviews and 'disappointed'. Something to note is the most counted word was 213 (for the word disappointed), which is significantly less than the most used word for the positive word (being 756 for the word 'love').
+
+
 
 #### Tips
-Top positive (tips):
+##### Top positive (tips):
 | word  | count  | happiness| 
 | ------------- | ------------- | ------------- |
 |happiness|    145|       8.44
@@ -261,7 +264,9 @@ Top positive (tips):
 |rainbow|    146|       8.10|
 |pleasure|    363|       8.08|
 
-Top negative (tips):
+Yelp tips have very positive words, 'love', 'happy', 'joy', 'beautiful', 'pleasure' all for example. The highest happiness score is 'happiness' with a 8.44. However, the most used word is 'love' with 48,097 uses and a 8.42 score. There is a 'laugh' family with 'laugh' (8.22), 'laughed' (8.26), 'laughing' (8.20) and 'laughs' (8.18). Not in this family but similar are 'happiness' and 'joy', which shows the playful and enthusiastic tone used throughout the Yelp tips. There are also words that show success, such as 'win' (8.12), 'won' (8.10), and successful (8.16). This fits in with tips as it's recommending things thats worth it. 
+
+##### Top negative (tips):
 | word  | count  | happiness| 
 | ------------- | ------------- | ------------- |
 |murder|     34|       1.48|
@@ -280,6 +285,9 @@ Top negative (tips):
 |cry|     91|       1.84|
 |failed|    149|       1.84|
 
+The negative tips are incredibly negative, with words such as 'murder' (1.48), 'death' (1.54), 'kill' (1.56) and 'war' (1.80). Some of these words could be used as hyperboles, such as "This food is to die for" or "i'd kill for this food", which is why context does play a part in truly understanding, however this will be discussed more in limitations. 'die' appeared the most with 2815 occurances, which again could suggest the hyperbole sentences. Overall, the negative words appear less frequent than the positive tips and depending on context many could be metaphorical. 
+
+ 
 
 ### Star Rating vs. Happiness Score
 
@@ -315,9 +323,11 @@ Consequence: 2011 is the time when this data sets is collected, which is too ear
 
 ### Reflection
 
-In conclusion, our hypothesis that tips are rated happier than reviews is correct: tips scored an average happiness of 5.80 compared to 5.54 for reviews, a difference of 0.26 points on the 1–9 scale. This gap aligns with the genres' communicative purposes. Tips are short, purpose-driven, and highlight what to do or try at a venue, naturally with more positive framing. Reviews, by contrast, are longer, providing space for mixed assessments, criticism, and, therefore, for more negative emotions. The star rating analysis reinforces this: the moderate but statistically significant correlation (r = 0.46, p < 0.001) confirms that written sentiment generally tracks numerical ratings. Semantic prosody analysis revealed a consistent pattern across both genres: highly positive and highly negative words alike tend to appear in contexts of moderate happiness. This suggests that affective peaks — whether joyful or critical — function as local spikes within otherwise neutral or mixed linguistic surroundings, rather than as markers of uniformly extreme texts. Tips showed slightly more consistently positive surrounding context for their happiest words, whereas reviews contained starker negative vocabulary (words like die, sick, pain) with no tip-equivalent.<br>
+In conclusion, our hypothesis that tips are rated happier than reviews is correct: tips scored an average happiness of 5.80 compared to 5.54 for reviews, a difference of 0.26 points on the 1–9 scale. This gap aligns with the genres' communicative purposes. Tips are short, purpose-driven, and highlight what to do or try at a venue, naturally with more positive framing. Reviews, by contrast, are longer, providing space for mixed assessments, criticism, and, therefore, for more negative emotions. The star rating analysis reinforces this: the moderate but statistically significant correlation (r = 0.46, p < 0.001) confirms that written sentiment generally tracks numerical ratings. Semantic prosody analysis revealed a consistent pattern across both genres: highly positive and highly negative words alike tend to appear in contexts of moderate happiness. This suggests that affective peaks, whether joyful or critical, function as local spikes within otherwise neutral or mixed linguistic surroundings, rather than as markers of uniformly extreme texts. Tips showed slightly more consistently positive surrounding context for their happiest words, whereas reviews contained starker negative vocabulary (words like die, sick, pain) with no tip-equivalent.<br>
 
-Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps — with over 11,000 out-of-vocabulary words in reviews alone — mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
+When looking at reviews and tips through repeating words, a noticeable thing is the count amount for the most positive words for reviews and tips. Both reviews and tips use highly positive words, however the frequency for reviews and tips are for the same word but different frequency: 'love', reviews count for 'love' is 756, while tips 'love' is counted at 48097. This is a significant gap between the amounts used between reviews and tips, and can count towards tips having a systemically higher happiness_average than reviews. Something interesting is for the negative words, tips has lower happiness scores overall, compared to reviews. 
+
+Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps, with over 11,000 out-of-vocabulary words in reviews alone, mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
