@@ -357,6 +357,8 @@ Scripts:
 
 M_average_happinness_per_item.py - Code was checked with Copilot for matching variables and logic loops. 
 
+plot_yelp_stars_vs_happiness.py - Deepseek AI wrote the bootstrap part of it.  I checked to make sure the destination, inputs, and pulls were all the correct destination and that the output was correct. 
+
 
 ## Members Contribution
 
