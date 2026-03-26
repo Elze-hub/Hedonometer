@@ -22,24 +22,12 @@ The researchers selected high-frequency words from four large text corpus as can
 - New York Times: formal journalistic writing. 
 - Lyrics: language of popular music containing emotional and cultural expressions.
 
-THIS NEEDS TO BE REWRITTEN:
+THIS SECTION NEEDS TO BE REWRITTEN:
 
-- Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(very negative) to 9(very positive). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.
+Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(very negative) to 9(very positive). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.
+The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
 
-### The basis for Yelp datasets
-
-Yelp dataset was acquired via Kaggle. We worked with two seperate datasets: Yelp reviews and Yelp tips, out of which the first was focused on overall experience, and the latter oriented towards specific, quick advice.
-
-The original data count was 6,990,280 items for reviews and 908,915 items for tips. As the original dataset proved to be too large, we condensed it to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
-
-Both corpora were pre-processed to remove noise, such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
-
-CONFIRM/REWRITE THIS?:
-
-- The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
-
-
-Calculation of all scores for each word: Mean happiness (happiness_average): the average of happiness ratings for a specific word.
+ Mean happiness (happiness_average): the average of happiness ratings for a specific word.
 Standard deviation (happiness_standard_deviation): the dispersion of happiness ratings around a specific word. According to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happiest score).<br> 
 
 For each word, record separately their ranks in their original corpus (twitter_rank, google_rank, nyt_rank, lyrics_rank). If the word was not in the top 5,000 words of a particular corpus, the rank was recorded as missing.<br> 
@@ -49,29 +37,25 @@ All information was merged into a single tab separated file (labMT 1.0). The f
 In this project, we used the happiness_average to be our "hedonometer" to score each word. With this being our hedonometer, we are able to compare groups of words (so for us, tips vs. reviews). By matching the Yelp dataset to the the labMT, we are able to get the happiness scores for both tips and reviews, compare the happiness_average, and see how context drives difference and through which specific words. The labMT does has it's limitations, such as context, which we will explain in the limitations section. 
 
 
+### The basis for Yelp datasets
 
+Yelp dataset was acquired via Kaggle. We worked with two seperate datasets: Yelp reviews and Yelp tips, out of which the first was focused on overall experience, and the latter oriented towards specific, quick advice.
 
+The original data count was 6,990,280 items for reviews and 908,915 items for tips. As the original dataset proved to be too large, we condensed it to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
 
-
-
-
-
+Both corpora were pre-processed to remove noise, such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
 
 
 ## Data & Methods
 
-To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 11229, tips 2925), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
+To assess the suitability of the Hedonometer lexicon for Yelp data, we compared the vocabulary of both corpora to the lexicon's word list. 
+
+We did this by extracting all unique words, which were then compared against the Hedonometer vocabulary. Words present in Yelp but absent from the Hedonometer lexicon were counted. Both tips and reviews contained substantial numbers of out of vocabulary words (reviews 11229, tips 2925), these included domain-specific terms (food items, brands), proper nouns (restaurant names, locations) and possible misspellings/morphological variants. 
 
 !!! Insert here calculations/tables on word level !!!
 
-Next to calculating sentiment at the word level, we computed average happiness per review or tip, treating each item as a meaningful unit of user expression. As mentioned above, all text was tokenized into individual words and matched to their corresponding happiness scores. The item's happiness score was calculated as the mean of all matched word scores.
-
-![Average Happiness per kind](figures/happiness_per_item_boxplot.png)
-
-Yelp tips exhibited higher average happiness and greater variance.
-
-Yelp reviews showed lower average happiness and a more constrained distribution.
+Next to calculating sentiment at the word level, we computed average happiness per review or tip, treating each item as a meaningful unit of user expression. As mentioned above, all text was tokenized into individual words and matched to their corresponding happiness scores. The item's happiness score was calculated as the mean of all matched word scores. 
 
 | Kind | Mean | SD | 50% | 75% | max |
 |------|------|----|-----|-----|-----|
@@ -79,6 +63,12 @@ Yelp reviews showed lower average happiness and a more constrained distribution.
 | Tip | 5.836699 | 0.630054 | 5.783667 | 6.160000 | 8.440000 |
 
 The mean length of a Yelp tip was 10.9612 words per item (SD = 10.4601), the mean length of a Yelp review was 106.2226 words per item (SD = 104.2296). 
+
+![Average Happiness per kind](figures/happiness_per_item_boxplot.png)
+
+Yelp tips exhibited higher average happiness and greater variance.
+
+Yelp reviews showed lower average happiness and a more constrained distribution.
 
 This aligns with genre expectations - tips are short, often informal and used to highlight positive experiences, whereas reviews tend to be longer, are more narrative and more likely to contain mixed or critical evaluations.
 
@@ -214,7 +204,6 @@ We randomly sampled 5,000 Yelp reviews and Yelp tips and created a hedonometer h
 ![Bargraph](figures/yelp_mean_happiness_tips_vs_reviews.png)
 
 ### Analyzing Yelp reviews and tips: words
-
 
 We now know that tips have a higher average happiness score than reviews. To better understand where this difference comes from, we examine which hedonometer words are repeated most often between tips and reviews, and how positive or negative these words are. 
 
@@ -357,11 +346,13 @@ Scripts:
 
 2A_yelp_word_repeats.py - UvA AI wrote the code, I checked to make sure the destination, inputs, and pulls were all the correct destination and that the output was correct. 
 
+M_average_happinness_per_item.py - Code was checked with Copilot for matching variables and logic loops. 
+
 ## Members Contribution
 
 Asena: 
 
-Meeli: 
+Meeli: Wrote M_average_happinness_per_item.py. Checked README for grammar and readability. Visualisation of some of the graphs and tables. 
 
 Elze: 
 
