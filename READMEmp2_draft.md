@@ -32,7 +32,6 @@ Consequence: Some words are positive in one context but negative in another, yet
 
 5: The data was collected in 2011.<br>
 Consequence: 2011 is the time when this data sets is collected, which is too early; it can only reflect the state of language use and emotional perception at that time. In this period, some words may already changed their meanings and can’t reflect the emotions of people accurately anymore.
-w.
 
 
 
