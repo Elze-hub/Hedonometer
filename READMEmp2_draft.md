@@ -1,9 +1,13 @@
 # Hedonometer on Yelp: Are Tips Happier than Reviews? 
 
 ## Project Overview
-We are using the labMT 1.0 hedonometer to compare the two different types of tones through Yelp tips and Yelp reviews. For this, we are answering if yelp tips are systemically happier, according to the hedonometer, than Yelp reviews. 
+We are using the labMT 1.0 Hedonometer assigned happiness average scores to research which of the two is happier in their nature: Yelp reviews or Yelp tips. 
 
-The original data count is 6,990,280 total for reviews and 908,915 total for tips. As the original data set is very large, we condensed the data set to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  Both corpora were pre-processed to remove noise such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
+Secondary research questions we will be attempting to answer are:
+
+- Does semantic prosody of the words preceding and following highly and lowly rated words show correlation in their respective marks? 
+- Does a correlation exist between reviews with high average happiness scores and high star-ratings? 
+
 
 ## Background 
 
@@ -11,7 +15,20 @@ The original data count is 6,990,280 total for reviews and 908,915 total for tip
 
 ### The basis for the Hedonometer
 The labMT 1.0 list was created using a quantitative methodology to measure the emotional value of commonly used English words. The pipeline is as follows:
-Candidate word collection: The researchers selected high-frequency words from four large text corpus as candidates: Twitter: informal social media language. Google: a generalised sample of Google posts, representing written language. New York Times: formal journalistic writing. Lyrics: language of popular music containing emotional and cultural expressions.<br> 
+
+The researchers selected high-frequency words from four large text corpus as candidates: 
+- Twitter: informal social media language. 
+- Google: a generalised sample of Google posts, representing written language. 
+- New York Times: formal journalistic writing. 
+- Lyrics: language of popular music containing emotional and cultural expressions.<br> 
+
+### The basis for Yelp datasets
+
+Yelp dataset was acquired via Kaggle. We worked with two seperate datasets: Yelp reviews and Yelp tips, out of which the first was focused on overall experience, and therefore was largely lengthier, and the latter oriented towards specific, quick advice, and was therefore shorter in nature.
+
+The original data count was 6,990,280 items for reviews and 908,915 items for tips. As the original dataset proved to be too large, we condensed it to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
+
+Both corpora were pre-processed to remove noise, such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
 The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
 Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(very negative) to 9(very positive). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.<br> 
