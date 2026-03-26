@@ -362,7 +362,7 @@ plot_yelp_stars_vs_happiness.py - Deepseek AI wrote the bootstrap part of it.  I
 
 ## Members Contribution
 
-Asena: 
+Asena: Took care of data and preprocessing (downloaded the Yelp dataset from Kaggle, shared raw data for the team). Wrote process_yelp_tips.py and process_yelp_reviews.py. Wrote qualatative analysis for repeating words and bargraph in README. 
 
 Meeli: Wrote M_average_happinness_per_item.py. Checked README for grammar and readability. Visualisation of some of the graphs and tables. 
 
