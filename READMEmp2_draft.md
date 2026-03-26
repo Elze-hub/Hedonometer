@@ -332,6 +332,8 @@ Several limitations should be noted. The hedonometer lexicon, built from 2011 da
 ### AI Usage 
 Scripts: 
 
+2A_yelp_word_repeats.py - UvA AI wrote the code, I checked to make sure the destination, inputs, and pulls were all the correct destination and that the output was correct. 
+
 ### Members Contribution
 
 Asena: 
