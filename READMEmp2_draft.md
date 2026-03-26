@@ -354,7 +354,7 @@ Asena:
 
 Meeli: Wrote M_average_happinness_per_item.py. Checked README for grammar and readability. Visualisation of some of the graphs and tables. 
 
-Elze: 
+Elze: Wrote Yelp_hedonometer_analysis.py. Created the repository and managed its' structure. Wrote refection in the README and checked for overall coherence and logic.
 
 Bijia: 
 
