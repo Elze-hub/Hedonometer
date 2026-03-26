@@ -357,6 +357,7 @@ Scripts:
 
 M_average_happinness_per_item.py - Code was checked with Copilot for matching variables and logic loops. 
 
+
 ## Members Contribution
 
 Asena: 
@@ -365,8 +366,7 @@ Meeli: Wrote M_average_happinness_per_item.py. Checked README for grammar and re
 
 Elze: Wrote Yelp_hedonometer_analysis.py. Created the repository and managed its' structure. Wrote refection in the README and checked for overall coherence and logic.
 
-Bijia: 
-
+Bijia: wrote plot_yelp_stars_vs_happiness.py. Visualisation of some of the graphs. Wrote the background in the README. Added and refined Bootstrap numbers.
 ## How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
