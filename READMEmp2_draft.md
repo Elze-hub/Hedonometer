@@ -328,6 +328,19 @@ In conclusion, our hypothesis that tips are rated happier than reviews is correc
 When looking at reviews and tips through repeating words, a noticeable thing is the count amount for the most positive words for reviews and tips. Both reviews and tips use highly positive words, however the frequency for reviews and tips are for the same word but different frequency: 'love', reviews count for 'love' is 756, while tips 'love' is counted at 48097. This is a significant gap between the amounts used between reviews and tips, and can count towards tips having a systemically higher happiness_average than reviews. Something interesting is for the negative words, tips has lower happiness scores overall, compared to reviews. 
 
 Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps, with over 11,000 out-of-vocabulary words in reviews alone, mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
+
+### AI Usage 
+Scripts: 
+
+### Members Contribution
+
+Asena: 
+
+Meeli: 
+
+Elze: 
+
+Bijia: 
 # How to download the Yelp Dataset
 We get the Yelp Dataset through Kaggle API, which then stores the raw files into data/raw/. You can access the website for the Yelp Dataset (and to make an account) at this link: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset
 
