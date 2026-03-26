@@ -21,27 +21,11 @@ Standard deviation (happiness_standard_deviation): the dispersion of happiness r
 
 For each word, record separately their ranks in their original corpus (twitter_rank, google_rank, nyt_rank, lyrics_rank). If the word was not in the top 5,000 words of a particular corpus, the rank was recorded as missing.<br> 
 
-All information was merged into a single tab separated file (labMT 1.0). The first rows are metadata rows, then there is a header row, and the data rows. This set will serve as the basis for the “hedonometer”.
+All information was merged into a single tab separated file (labMT 1.0). The first rows are metadata rows, then there is a header row, and the data rows. This set will serve as the basis for the “hedonometer”. 
 
-In this project, we used the happiness_average to be our "hedonometer" to score each word. With this being our hedonometer, we are able to compare groups of words (so for us, tips vs. reviews). By matching the Yelp dataset to the the labMT, we are able to get the happiness scores for both tips and reviews, compare the happiness_average, and see how context drives difference and through which specific words. 
-
-### Notes on bias of the Hedonometer
-1: Only obtained the happiness ratings from human observers on Mechanical Turk 1.0.<br>
-Consequence: Since we cannot confirmed that the human subjects on the Mechanical Turk 1.0 platform include people from all cultures around the world, it is not possible to have an answer that represents the emotions of humans regarding language on a global scale.<br>
+In this project, we used the happiness_average to be our "hedonometer" to score each word. With this being our hedonometer, we are able to compare groups of words (so for us, tips vs. reviews). By matching the Yelp dataset to the the labMT, we are able to get the happiness scores for both tips and reviews, compare the happiness_average, and see how context drives difference and through which specific words. The labMT does has it's limitations, such as context, which we will explain in the limitations section. 
 
 
-
-2: Using a simple 1-to-9 rating scale to evaluate the sentiment associated with different words may obscure many of people’s neutral emotions.<br>
-Consequence: This simplistic rating scale risks simplifying people’s complex emotions, reducing feelings that cannot be quantified into a limited numbers. Furthermore, some neutral words are directly assigned a mid-range score of around 5, even though these words may contain no emotional thoughts at all.<br>
-
-3: extracted the top 5,000 most frequent words from each of the four corpora, merged them, and removed duplicates to obtain the final vocabulary list.<br>
-Consequence: Some low-frequency words are also meaningful, but they were excluded because only the top 5,000 words from a limited corpus were extracted. Furthermore, since the corpus comprises only four distinct types, it cannot cover all areas of language that people used in daily life, so some words simply have no chance of appearing in the dataset.<br>
-
-4: One word only obtained one average score, completely ignoring a word's multiple meanings across different contexts.<br>
-Consequence: Some words are positive in one context but negative in another, yet the dataset can only provide a single average score, resulting in a high standard deviation for certain words.<br>
-
-5: The data was collected in 2011.<br>
-Consequence: 2011 is the time when this data sets is collected, which is too early; it can only reflect the state of language use and emotional perception at that time. In this period, some words may already changed their meanings and can’t reflect the emotions of people accurately anymore.
 
 
 
@@ -310,6 +294,27 @@ To assess the stability of this correlation, we performed bootstrap resampling (
 ![Bootstrap distribution of correlation](figures/bootstrap_r_distribution.png)
 
 ## Limitation & Reflection
+
+### Notes on bias of the Hedonometer
+1: Only obtained the happiness ratings from human observers on Mechanical Turk 1.0.<br>
+Consequence: Since we cannot confirmed that the human subjects on the Mechanical Turk 1.0 platform include people from all cultures around the world, it is not possible to have an answer that represents the emotions of humans regarding language on a global scale.<br>
+
+
+
+2: Using a simple 1-to-9 rating scale to evaluate the sentiment associated with different words may obscure many of people’s neutral emotions.<br>
+Consequence: This simplistic rating scale risks simplifying people’s complex emotions, reducing feelings that cannot be quantified into a limited numbers. Furthermore, some neutral words are directly assigned a mid-range score of around 5, even though these words may contain no emotional thoughts at all.<br>
+
+3: extracted the top 5,000 most frequent words from each of the four corpora, merged them, and removed duplicates to obtain the final vocabulary list.<br>
+Consequence: Some low-frequency words are also meaningful, but they were excluded because only the top 5,000 words from a limited corpus were extracted. Furthermore, since the corpus comprises only four distinct types, it cannot cover all areas of language that people used in daily life, so some words simply have no chance of appearing in the dataset.<br>
+
+4: One word only obtained one average score, completely ignoring a word's multiple meanings across different contexts.<br>
+Consequence: Some words are positive in one context but negative in another, yet the dataset can only provide a single average score, resulting in a high standard deviation for certain words.<br>
+
+5: The data was collected in 2011.<br>
+Consequence: 2011 is the time when this data sets is collected, which is too early; it can only reflect the state of language use and emotional perception at that time. In this period, some words may already changed their meanings and can’t reflect the emotions of people accurately anymore.
+
+### Reflection
+
 In conclusion, our hypothesis that tips are rated happier than reviews is correct: tips scored an average happiness of 5.80 compared to 5.54 for reviews, a difference of 0.26 points on the 1–9 scale. This gap aligns with the genres' communicative purposes. Tips are short, purpose-driven, and highlight what to do or try at a venue, naturally with more positive framing. Reviews, by contrast, are longer, providing space for mixed assessments, criticism, and, therefore, for more negative emotions. The star rating analysis reinforces this: the moderate but statistically significant correlation (r = 0.46, p < 0.001) confirms that written sentiment generally tracks numerical ratings. Semantic prosody analysis revealed a consistent pattern across both genres: highly positive and highly negative words alike tend to appear in contexts of moderate happiness. This suggests that affective peaks — whether joyful or critical — function as local spikes within otherwise neutral or mixed linguistic surroundings, rather than as markers of uniformly extreme texts. Tips showed slightly more consistently positive surrounding context for their happiest words, whereas reviews contained starker negative vocabulary (words like die, sick, pain) with no tip-equivalent.<br>
 
 Several limitations should be noted. The hedonometer lexicon, built from 2011 data, may not capture shifts in word meaning or sentiment over time. Its single-score-per-word design cannot account for polysemy or context-dependent meaning, and its coverage gaps — with over 11,000 out-of-vocabulary words in reviews alone — mean a significant portion of language goes unscored. The platform-specific vocabulary of Yelp (food terms, business names, slang) is particularly underrepresented.
