@@ -28,14 +28,15 @@ THIS NEEDS TO BE REWRITTEN:
 
 ### The basis for Yelp datasets
 
-Yelp dataset was acquired via Kaggle. We worked with two seperate datasets: Yelp reviews and Yelp tips, out of which the first was focused on overall experience, and therefore was largely lengthier, and the latter oriented towards specific, quick advice, and was therefore shorter in nature.
+Yelp dataset was acquired via Kaggle. We worked with two seperate datasets: Yelp reviews and Yelp tips, out of which the first was focused on overall experience, and the latter oriented towards specific, quick advice.
 
 The original data count was 6,990,280 items for reviews and 908,915 items for tips. As the original dataset proved to be too large, we condensed it to 5,000 reviews and 5,000 tips by using a script that randomly sampled N lines from each of the files.  
 
 Both corpora were pre-processed to remove noise, such as punctuation, non-alphabetic characters and irregular spacing. All text was tokenized, ensuring consistent lower-casing and removal of non-word tokens.
 
-The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
+CONFIRM/REWRITE THIS?:
 
+- The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
 
 
 Calculation of all scores for each word: Mean happiness (happiness_average): the average of happiness ratings for a specific word.
