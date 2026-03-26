@@ -14,21 +14,22 @@ The labMT 1.0 list was created using a quantitative methodology to measure the
 Candidate word collection: The researchers selected high-frequency words from four large text corpus as candidates: Twitter: informal social media language. Google: a generalised sample of Google posts, representing written language. New York Times: formal journalistic writing. Lyrics: language of popular music containing emotional and cultural expressions.<br> 
 
 The 5,000 most frequent words were taken from each corpus. We end up with a list of 10,222 unique words after merge and duplicate removal.
-Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(saddest) to 9(happiest). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.<br> 
+Recruit online human subjects by using Mechanical Turk 1.0. All subjects are required to rank each words from 1(very negative) to 9(very positive). To ensure the reliablility of rankings, every word will be ranked independently by multiple subjects.<br> 
 
 Calculation of all scores for each word: Mean happiness (happiness_average): the average of happiness ratings for a specific word.
-Standard deviation (happiness_standard_deviation): the dispersion of happiness ratings around a specific word.<br> 
-
-According to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happiest score).<br> 
+Standard deviation (happiness_standard_deviation): the dispersion of happiness ratings around a specific word. According to the average score, all words are ranked from high to low, and the results is (happiness_rank). The more score the word obtained, the higher rank it will be(1 is the happiest score).<br> 
 
 For each word, record separately their ranks in their original corpus (twitter_rank, google_rank, nyt_rank, lyrics_rank). If the word was not in the top 5,000 words of a particular corpus, the rank was recorded as missing.<br> 
 
 All information was merged into a single tab separated file (labMT 1.0). The first rows are metadata rows, then there is a header row, and the data rows. This set will serve as the basis for the “hedonometer”.
+
+In this project, we used the happiness_average to be our "hedonometer" to score each word. With this being our hedonometer, we are able to compare groups of words (so for us, tips vs. reviews). By matching the Yelp dataset to the the labMT, we are able to get the happiness scores for both tips and reviews, compare the happiness_average, and see how context drives difference and through which specific words. 
+
 ### Notes on bias of the Hedonometer
 1: Only obtained the happiness ratings from human observers on Mechanical Turk 1.0.<br>
 Consequence: Since we cannot confirmed that the human subjects on the Mechanical Turk 1.0 platform include people from all cultures around the world, it is not possible to have an answer that represents the emotions of humans regarding language on a global scale.<br>
 
->>>>>>> 863d3ca02f948b6d15132f6a0e60a5b99d349fdd
+
 
 2: Using a simple 1-to-9 rating scale to evaluate the sentiment associated with different words may obscure many of people’s neutral emotions.<br>
 Consequence: This simplistic rating scale risks simplifying people’s complex emotions, reducing feelings that cannot be quantified into a limited numbers. Furthermore, some neutral words are directly assigned a mid-range score of around 5, even though these words may contain no emotional thoughts at all.<br>
